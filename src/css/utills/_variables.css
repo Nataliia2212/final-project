@@ -1,0 +1,20 @@
+:root {
+    --third-text-color: #0E1823;
+    --main-text-color: #FBFBFB;
+    --accent-text-color: #1B414B;
+    --second-text-color: #040306;
+    --second-text-color_a-four: rgba(4, 3, 6, 0.4);
+    --main-text-color_a-four: rgba(251, 251, 251, 0.4);
+
+    --main-btn-color: #1B414B;
+    --main-btn-color-hover-focus: rgba(27, 65, 75, 0.5);
+    --second-btn-color: #FBFBFB;
+    --second-btn-color-hover-focus: rgba(251, 251, 251, 0.3);
+
+    --main-bk-color: #0E1823;
+    --second-bk-color: #FBFBFB;
+    --third-bk-color: #1B414B;
+
+    --transition-duration-and-timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}

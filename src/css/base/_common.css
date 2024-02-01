@@ -1,0 +1,116 @@
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    background-color: var(--main-bk-color);
+
+    background-image:
+        url(../../img/page-background/page-background-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+@media screen and (min-resolution: 192dpi),
+screen and (min-device-pixel-ratio: 2),
+screen and (min-resolution: 2dppx) {
+    body {
+        background-image:
+            url(../../img/page-background/page-background-mobile@2x.jpg);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        background-image:
+            url(../../img/page-background/page-background-tablet.jpg);
+    }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi),
+screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    body {
+        background-image:
+            url(../../img/page-background/page-background-tablet@2x.jpg);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    body {
+        background-image:
+            url(../../img/page-background/page-background-laptop.jpg);
+    }
+}
+
+@media screen and (min-width: 1280px) and (min-resolution: 192dpi),
+screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
+screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+    body {
+        background-image:
+            url(../../img/page-background/page-background-laptop@2x.jpg);
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        background-image:
+            url(../../img/page-background/page-background-desktop.jpg);
+    }
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi),
+screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
+screen and (min-width: 1440px) and (min-resolution: 2dppx) {
+    body {
+        background-image:
+            url(../../img/page-background/page-background-desktop@2x.jpg);
+    }
+}
