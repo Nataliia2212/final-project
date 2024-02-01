@@ -1,5 +1,3 @@
-
-
 h1,
 h2,
 h3,
@@ -47,70 +45,16 @@ a {
 }
 
 body {
-    /* font-family: 'Helvetica Neue', sans-serif;
-    font-size: 13px;
-    background-color: var(--main-bk-color);
-
-    background-image:
-        url(../../img/page-background/page-background-mobile.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top; */
-}
-/* 
-@media screen and (min-resolution: 192dpi),
-screen and (min-device-pixel-ratio: 2),
-screen and (min-resolution: 2dppx) {
-    body {
-        background-image:
-            url(../../img/page-background/page-background-mobile@2x.jpg);
-    }
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--main-background-color);
 }
 
-@media screen and (min-width: 768px) {
-    body {
-        background-image:
-            url(../../img/page-background/page-background-tablet.jpg);
-    }
+.section {
+    padding: 10px 0;
 }
 
-@media screen and (min-width: 768px) and (min-resolution: 192dpi),
-screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
-screen and (min-width: 768px) and (min-resolution: 2dppx) {
-    body {
-        background-image:
-            url(../../img/page-background/page-background-tablet@2x.jpg);
+@media screen and (min-width:768px) {
+    .section {
+        padding: 8px 0;
     }
 }
-
-@media screen and (min-width: 1280px) {
-    body {
-        background-image:
-            url(../../img/page-background/page-background-laptop.jpg);
-    }
-}
-
-@media screen and (min-width: 1280px) and (min-resolution: 192dpi),
-screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
-screen and (min-width: 1280px) and (min-resolution: 2dppx) {
-    body {
-        background-image:
-            url(../../img/page-background/page-background-laptop@2x.jpg);
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    body {
-        background-image:
-            url(../../img/page-background/page-background-desktop.jpg);
-    }
-}
-
-@media screen and (min-width: 1440px) and (min-resolution: 192dpi),
-screen and (min-width: 1440px) and (min-device-pixel-ratio: 2),
-screen and (min-width: 1440px) and (min-resolution: 2dppx) {
-    body {
-        background-image:
-            url(../../img/page-background/page-background-desktop@2x.jpg);
-    }
-} */
