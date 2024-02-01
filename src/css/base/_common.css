@@ -47,7 +47,7 @@ a {
 }
 
 body {
-    font-family: 'Helvetica Neue', sans-serif;
+    /* font-family: 'Helvetica Neue', sans-serif;
     font-size: 13px;
     background-color: var(--main-bk-color);
 
@@ -55,9 +55,9 @@ body {
         url(../../img/page-background/page-background-mobile.jpg);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: top;
+    background-position: top; */
 }
-
+/* 
 @media screen and (min-resolution: 192dpi),
 screen and (min-device-pixel-ratio: 2),
 screen and (min-resolution: 2dppx) {
@@ -113,4 +113,4 @@ screen and (min-width: 1440px) and (min-resolution: 2dppx) {
         background-image:
             url(../../img/page-background/page-background-desktop@2x.jpg);
     }
-}
+} */
