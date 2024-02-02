@@ -1,0 +1,26 @@
+.favorites-block-container {
+    padding: 40px 20px;
+    border-radius: 30px;
+    background-color: var(--second-background-color);
+}
+
+.section-title {
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--main-text-color);
+}
+
+.btn-trash {
+fill: none;
+    stroke: black;
+}
+
+
+
+.icon {
+    fill: black;
+    stroke: black;
+}
