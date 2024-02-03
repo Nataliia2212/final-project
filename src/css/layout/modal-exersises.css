@@ -7,8 +7,8 @@ body.modal {
 /* БЕКДРОП */
 
 .exercise-modal-container {
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -31,8 +31,8 @@ body.modal {
 
 .modal-exercise-wrap {
   z-index: 100;
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
 
   width: 335px;
   /* height: 95%; */
