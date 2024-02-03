@@ -1,7 +1,7 @@
 import axiosInstance from "axios";
 
 const refs = {
-    // gallery_btn: document.querySelector(".gallery-list"), кнопка відкриття вправи
+    gallery_btn: document.querySelector(".gallery-list"), 
     exercises_container: document.querySelector(".exercise-modal-container"),
     exercises_wrap: document.querySelector(".modal-exercise-wrap"),
     close_btn: document.querySelector(".close-exercise-btn"),
@@ -9,32 +9,93 @@ const refs = {
     modal_button: document.querySelector(".modal-button"),
     modal_add_favorite: document.querySelector(".modal-add-favorite"),
     body: document.querySelector("body"),
+    
 }
 let idExercises;
-
+idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
 
 // API 
 
 const axios = axiosInstance.create({
     baseURL: 'https://energyflow.b.goit.study/api',
 })
-
 class goitGlobalAPI {
     constructor() {
     }
-
     getExercisesById(id) {
-
         return axios.get(`/exercises/${id}`).then(response => response.data);
     }
-
  }
+const modalExercisesApi = new goitGlobalAPI();
 
-const modalExercisesApi = new goitGlobalAPI(); 
-idExercises = '64f389465ae26083f39b17a4';
+try {
+refs.gallery_btn.addEventListener("click", openModalExercises);
+}catch (error) {
+  console.log(error)
+};
 
+function openModalExercises(e) {
+    if (!e.target.closest('.gallery-btn')) {
+        return;
+    };
+    
+    const clickedExercises = e.target.closest('.gallery-btn');
+    if (!clickedExercises) return;
 
-catchExercises(idExercises);
+    idExercises = clickedExercises.id;
+    idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
+    
+    openExercises();
+
+    catchExercises(idExercises);
+
+}
+
+// OPEN AND CLOSE MODAL
+function openExercises(e) {
+    refs.body.classList.add("modal");
+
+    refs.exercises_container.classList.add("active");
+    refs.exercises_wrap.classList.add("active");
+
+    // Додаємо слухачі для закриття модального вікна
+    
+    refs.exercises_container.addEventListener("click", closeModalExercisesOnClick);
+    refs.close_btn.addEventListener("click", closeModalExercises);
+    window.addEventListener("keydown", closeModalExercisesOnEsc);
+    
+    // FAVORITE AND FEEDBACK  
+  refs.modal_add_favorite.addEventListener("click", addToFavorite);
+}
+
+function closeModalExercisesOnClick(e) {
+    if (e.target === refs.exercises_container) {
+        closeModalExercises(e);
+     }
+}
+
+function closeModalExercises(e) {
+    refs.body.classList.remove("modal");
+    refs.exercises_container.classList.remove("active");
+    refs.exercises_wrap.classList.remove("active");
+
+    // Видаляємо слухачі
+    refs.exercises_container.removeEventListener("click", closeModalExercises);
+    refs.close_btn.removeEventListener("click", closeModalExercises);
+    window.removeEventListener("keydown", closeModalExercisesOnEsc);
+    
+    refs.card_markup_modal.classList.add("is-hidden");
+    refs.modal_button.classList.add("is-hidden");
+}
+
+function closeModalExercisesOnEsc(e) {
+    if (e.key === "Escape") {
+        closeModalExercises(e);
+    }
+}
+
+// Отримуємо дані з сервера
+
 async function catchExercises(idExercises) {
     
   try {
@@ -46,6 +107,7 @@ async function catchExercises(idExercises) {
     console.log(`Error: ${err}`);
   }
 }
+
 // Викликаємо функції для рендеру картки
 function markupExercises(exerciseArr) {
     let markup = ``;
@@ -76,7 +138,7 @@ function markupStarAndTitle(exerciseArr) {
   return ` <div class="modal-general-info">
        
         <div class="card-star-modal">
-        <h3 class="modal-exercise-name">${exerciseArr.name}</h3>
+        <h2 class="modal-exercise-name">${exerciseArr.name}</h2>
         <div class="exercise-star-modal">
             <div class="modal-exercise-rating">${exerciseArr.rating}</div>
             <div class="modal-exercise-active">
@@ -97,9 +159,6 @@ function markupStarAndTitle(exerciseArr) {
 </svg>
             </div>
         </div>
-        <svg  class="modal-line" width="295" height="2" viewBox="0 0 295 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 1H295" stroke="#1B1B1B" stroke-opacity="0.2" />
-</svg>
         </div>
        `;
   
@@ -119,19 +178,19 @@ function markupCharacteristics(exerciseArr) {
     const markupTag = ` <!-- Teg -->
     <div class="modal-teg">
           <ul class="modal-hashtag-list">
-            <li class="modal-name-characteristics"> Target 
+            <li class="modal-name-characteristics"> <span class = "modal-characteristics"> Target </span>
             <span class="modal-value">${exerciseArr.target}</span> </li>
 
-             <li class="modal-name-characteristics"> Body Part
+             <li class="modal-name-characteristics"> <span class = "modal-characteristics"> Body Part </span>
              <span class="modal-value">${exerciseArr.bodyPart}</span> </li>
 
-              <li class="modal-name-characteristics"> Equipment
+              <li class="modal-name-characteristics"> <span class = "modal-characteristics"> Equipment </span>
               <span class="modal-value">${exerciseArr.equipment}</span> </li>
 
-               <li class="modal-name-characteristics"> Popular 
+               <li class="modal-name-characteristics"> <span class = "modal-characteristics"> Popular </span>
                <span class="modal-value">${exerciseArr.popularity}</span> </li>
 
-                <li class="modal-name-characteristics"> Burned Calories 
+                <li class="modal-name-characteristics"> <span class = "modal-characteristics"> Burned Calories </span>
                 <span class="modal-value">${exerciseArr.burnedCalories}/${exerciseArr.time}</span> </li>
           </ul>
         </div>`
@@ -145,3 +204,6 @@ function markupDescription(exerciseArr) {
         </p>
       </div>`
 }
+
+// FAVORITES
+function addToFavorite(){}
