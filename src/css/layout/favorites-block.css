@@ -18,7 +18,7 @@
     
 }
 
-.list {
+.favorites-list {
 display: flex;
     flex-wrap: wrap;
     row-gap: 20px;
@@ -26,7 +26,7 @@ display: flex;
 }
 
 .list-item {
-    flex-basis: calc((100% - 16px) / 2);
+    /* flex-basis: calc((100% - 16px) / 2); */
     border-radius: 15px;
     padding: 16px;
     background-color: var(--white-background-color);
