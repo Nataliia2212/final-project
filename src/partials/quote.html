@@ -1,5 +1,5 @@
-<section class="sport-info container">
-    <div class="sport-info__wrapper">
+<section class="quote container">
+    <div class="quote__wrapper">
       <h2 class="quote__title">Quote of the day</h2>
   
       <blockquote>
@@ -11,15 +11,14 @@
         <footer class="quote__text--author">Tom Brady</footer>
       </blockquote>
     </div>
-  
-    <img
-      src="../img/quote/mob-girl.png"
-      srcset="../img/quote/mob-girl.png 1x, ../img/quote/mob-girl@2.png 2x,
-      ../img/quote/tablet-girl.png 1x, ../img/quote/tablet-girl@2.png 2x,
-      ../img/quote/desk-girl.png 1x, ../img/quote/desk-girl@2.png 2x"
-      sizes="(max-width: 375px) 100vw,
-         (max-width: 768px) 100vw,
-         1440px"
-      alt="quote of the day"
-    />
-  </section>
+
+    <picture class="quote__img">
+        
+        <source media="(max-width: 767px)" srcset="../img/quote/mob-girl.webp, ../img/quote/mob-girl@2x.webp 2x">
+        <source media="(max-width: 1439px)" srcset="../img/quote/tablet-girl.webp, ../img/quote/tablet-girl@2x.webp 2x">
+        <source media="(min-width: 1440px)" srcset="../img/quote/desk-girl.webp, ../img/quote/desk-girl@2x.webp 2x">
+    
+        <img src="../img/quote/mob-girl.webp" alt="quote of the day">
+    </picture>
+
+    
