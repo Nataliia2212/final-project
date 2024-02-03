@@ -1,0 +1,93 @@
+.sport-info {
+  
+  width: 335px;
+  height: 272px;
+
+  
+}
+
+.sport-info__wrapper{
+    position: relative;
+    padding: 42px 20px 40px 66px;
+    border-radius: 30px;
+    background: #7e847f;
+}
+
+.quote__title::before{
+    content: " ";
+    position: absolute;
+    display: block;
+    top: 40px;
+    left: 20px;
+    width: 34px;
+    height: 32px;
+    fill: #F6F6F6;
+    stroke: #F6F6F6;
+    background-image: 
+    url("..");
+    
+  }
+
+.quote__title {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #f6f6f6;
+}
+
+.quote__title::after{
+    content: " ";
+    position: absolute;
+    display: block;
+    top: 40px;
+    right: 20px;
+    width: 22px;
+    height: 18px;
+    fill: #F6F6F6;
+    stroke: #F6F6F6;
+    background-image: 
+    url("/src/img/sprite.svg#icon-quotes");
+    
+  }
+
+blockquote{
+    margin: 0;
+    margin-top: 14px;
+}
+
+.quote__text {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28571;
+    color: rgba(246, 246, 246, 0.6);
+}
+
+.quote__text--author {
+    margin-top: 14px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #f6f6f6;
+}
+
+/*! =============== Tablet_768px =============== */
+@media screen and (min-width:768px) {
+    .container {
+        max-width: 768px;
+        padding: 0 16px;
+    }
+}
+
+/* ==============/ Tablet_768px =============== */
+
+/*! =============== Desktop_1440px ============== */
+@media screen and (min-width:1440px) {
+    .container {
+        max-width: 1440px;
+    }
+}
+
+/* ===============/ Desktop_1440px ============== */
