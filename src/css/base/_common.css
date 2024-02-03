@@ -49,12 +49,12 @@ body {
     background-color: var(--main-background-color);
 }
 
-.section {
-    padding: 10px 0;
+section {
+    padding: 10px 20px;
 }
 
 @media screen and (min-width:768px) {
-    .section {
-        padding: 8px 0;
+    section {
+        padding: 8px 16px;
     }
 }
