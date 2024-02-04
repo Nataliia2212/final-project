@@ -19,7 +19,6 @@ screen and (min-resolution: 2dppx) {
     rgba(46, 47, 66, 0.10)), url('../../img/hero/hero-mini@2x.jpg');
   }
 }
-
 .hero-teg {
   display: flex;
   flex-direction: column;
@@ -30,18 +29,6 @@ screen and (min-resolution: 2dppx) {
 .hero-teg-item {
   display: flex;
   gap: 4px;
-}
-.diet {
-  width: 53px;
-}
-.sport {
-  width: 61px;
-}
-.Healthy {
- width: 72px; 
-}
-.Workout {
- width: 77px; 
 }
 .hero-teg-link {
   font-weight: 400;
@@ -71,6 +58,10 @@ screen and (min-resolution: 2dppx) {
   padding-right: 20px;
 }
 .hero-title-body {
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 0.89286;
+  letter-spacing: -0.02em;
   font-style: italic;
   color:var(--accent-text-color);
 }
@@ -84,7 +75,6 @@ screen and (min-resolution: 2dppx) {
   padding-left: 20px;
   padding-right: 20px;
 }
-
  @media screen and (min-width:768px) {
   .hero {
      flex-direction: row;     
@@ -103,27 +93,14 @@ screen and (min-resolution: 2dppx) {
          background-image: linear-gradient(rgba(46, 47, 66, 0.10),
           rgba(46, 47, 66, 0.10)), url('../../img/hero/hero2@2x.jpg');
                }
-        }
-  
-   .hero-teg {
-      padding-top: 764px;
-      padding-left: 20px;
-      gap: 8px;
-    }
+        }  
+ .hero-teg {
+    padding-top: 764px;
+    padding-left: 20px;
+    gap: 8px;
+  }
 .hero-teg-item {
    gap: 8px;
-}
-.diet {
-  width: 76px;
-}
-.sport {
-  width: 86px;
-}
-.Healthy {
-  width: 102px;
-}
-.Workout {
-  width: 108px;
 }
   .hero-teg-link {
       font-weight: 400;
@@ -147,6 +124,11 @@ screen and (min-resolution: 2dppx) {
    padding-top: 231px;
    padding-left: 30px;
    padding-right: 30px;
+ }
+ .hero-title-body {
+  font-size: 98px;
+    line-height: 0.96939;
+    letter-spacing: -0.02em;
  }
   .hero-text {
     font-size: 18px;
@@ -177,8 +159,7 @@ screen and (min-resolution: 2dppx) {
  .hero-teg {
    padding-top: 780px;
    padding-left: 48px;          
- } 
- 
+ }  
  .hero-info {
    border-radius: 0 50px 50px 50px;
    width: 704px;
@@ -191,6 +172,11 @@ screen and (min-resolution: 2dppx) {
   padding-top: 225px;
   padding-left: 32px;
   padding-bottom: 25px;
+}
+.hero-title-body {
+  font-size: 120px;
+  line-height: 0.95833;
+  letter-spacing: -0.02em;
 }
  .hero-text {
    font-size: 18px;
