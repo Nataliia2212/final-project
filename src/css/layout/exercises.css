@@ -155,6 +155,7 @@
 
 .gallery-item {
   position: relative;
+  cursor: pointer;
 }
 .img-container {
   overflow: hidden;
@@ -253,9 +254,10 @@
   padding: 0px 13px 0px 11px;
   width: 31px;
   height: 32px;
+  cursor: pointer;
 }
 
-.inactive-page {
+.page-number-item {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -264,8 +266,9 @@
   color: var(--main-text-color_a-four);
 }
 
-.inactive-page:hover {
+.page-number-item:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 /* ================ Workout cards ================== */
@@ -401,6 +404,12 @@
 
 .icon-run {
   fill: var(--second-background-color);
+}
+
+.icon-search {
+  stroke-width: 1.5px;
+  stroke: var(--main-text-color);
+  fill: none;
 }
 
 @media screen and (min-width: 768px) {
