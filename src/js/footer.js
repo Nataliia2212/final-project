@@ -10,11 +10,11 @@ function submitForm() {
   axios.post('https://energyflow.b.goit.study/api/subscription', data)
     .then(response => {
       console.log(response.data);
-      alert('Замовлення успішно відправлено!');
+      alert('You have successfully subscribed to our newsletter!');
     })
     .catch(error => {
-      console.error('Помилка відправлення замовлення:', error);
-      alert('Сталася помилка. Будь ласка, спробуйте ще раз.');
+      console.error('Error sending the order:', error);
+      alert('An error occurred. Please try again.');
     });
 }
 
