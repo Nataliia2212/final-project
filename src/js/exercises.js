@@ -74,6 +74,8 @@ filterBTN.addEventListener('click', async function (e) {
   if (elem) {
     gallery.innerHTML = markup;
   }
+  const pageMarkup = pagesTemplate(result.totalPages);
+  pages.innerHTML = pageMarkup;
 });
 
 function imgTemplate({ filter, imgUrl, name }) {
