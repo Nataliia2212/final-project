@@ -94,22 +94,22 @@ function deleteExercise(id) {
     const exercises = loadFromLS(keyLS)
     console.log(exercises)
     console.log('??????')
- exercises.indexof(id)
+//  exercises.indexof(id)
         
-exercises.map((element, index, array) => {
-  // Тіло колбек-функції
-});
+// exercises.map((element, index, array) => {
+//   // Тіло колбек-функції
+// });
 
-//    for (let i = 0; i < exercises.length; i++) {
-//         console.log(i)
+   for (let i = 0; i < exercises.length; i++) {
+        console.log(i)
 
-//         //  if (exercises[i]._id === id) {
-//         //      console.log('hgfdsdfghjk')
-//         //      console.log(exercises[i]._id)
-//         //         exercises[i].splice(i, 1);
-//         //         break;
-//         //     }
-//     }
+         if (exercises[i]._id === id) {
+             console.log('hgfdsdfghjk')
+             console.log(exercises[i]._id)
+                exercises[i].splice(i, 1);
+                break;
+            }
+    }
     console.log(exercises)
         return exercises;
 }
