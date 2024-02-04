@@ -13,7 +13,7 @@
 
 .logo:hover,
 .logo:focus {
-  color: var(--dark-background-color);
+  color: rgba(246, 246, 246, 0.3);
 }
 
 .social-links {
@@ -30,7 +30,7 @@
 
 .footer-icon:hover,
 .footer-icon:focus {
-  fill: var(--btn-color-hover-focus);
+  fill: var(--second-text-color_a-six);
 }
 
 .motto {
@@ -65,8 +65,7 @@
 
 .form-footer-input:hover,
 .form-footer-input:focus {
-  border-color: var(--dark-background-color);
-  color: var(--dark-background-color);
+  border-color: var(--second-text-color_a-six);
 }
 
 .btn-footer {
@@ -133,6 +132,13 @@
     letter-spacing: -0.02em;
   }
 
+  /* .form-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } */
+
   .form-sub {
     font-size: 14px;
     line-height: 1.28571;
@@ -148,7 +154,7 @@
   }
 
   .btn-footer {
-    width: 295px;
+    max-width: 295px;
     font-size: 14px;
     line-height: 1.28571;
     line-height: 1.5;
@@ -219,7 +225,8 @@
   }
 
   .btn-footer {
-    width: 352px;
+    width: 100%;
+    max-width: 352px;
     height: 48px;
     font-size: 16px;
     line-height: 1.5;
