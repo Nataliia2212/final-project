@@ -8,6 +8,7 @@ const refs = {
     card_markup_modal: document.querySelector(".card-markup-modal"),
     modal_button: document.querySelector(".modal-button"),
     modal_add_favorite: document.querySelector(".modal-add-favorite"),
+    moodal_give_rating: document.querySelector(".modal-give-rating"),
     body: document.querySelector("body"),
     
 }
@@ -49,6 +50,8 @@ function openModalExercises(e) {
 
     catchExercises(idExercises);
 
+
+
 }
 
 // OPEN AND CLOSE MODAL
@@ -59,7 +62,7 @@ function openExercises(e) {
     refs.exercises_wrap.classList.add("active");
 
     // Додаємо слухачі для закриття модального вікна
-    
+    refs.moodal_give_rating.addEventListener("click", closeModalExercises);
     refs.exercises_container.addEventListener("click", closeModalExercisesOnClick);
     refs.close_btn.addEventListener("click", closeModalExercises);
     window.addEventListener("keydown", closeModalExercisesOnEsc);
