@@ -3,7 +3,7 @@
 @import url('./base/_container.css');
 
 @import url('./utills/_variables.css');
-
+@import url('./layout/quote.css');
 @import url('./layout/header.css');
 @import url('./layout/exercises.css');
 @import url('./layout/sport-info.css');
