@@ -38,10 +38,11 @@
           <p class="form-sub">Subscribe and learn about new exercises!</p>
           <form class="form-footer" id="newsletter-form" method="post">
             <label for="email">
-              <input class="form-footer-input" type="email" id="email" name="email" placeholder="E-mail">
+              <input class="form-footer-input" type="email" id="email" name="email" placeholder="E-mail"
+                pattern="^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$" required>
             </label>
           </form>
-          <button class="btn-footer" type="submit">Send</button>
+          <button id="sendButton" class="btn-footer" type="button">Send</button>
         </div>
       </div>
     </div>
