@@ -150,6 +150,13 @@
     margin-bottom: 20px;
   }
 
+  .motto-word {
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
   .form-sub {
     font-size: 14px;
     line-height: 1.28571;
@@ -251,6 +258,13 @@
   }
 
   .motto {
+    max-width: 345px;
+    font-size: 54px;
+    line-height: 0.92593;
+    letter-spacing: -0.02em;
+  }
+
+  .motto-word {
     max-width: 345px;
     font-size: 54px;
     line-height: 0.92593;
