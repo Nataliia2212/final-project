@@ -1,6 +1,6 @@
 .exercises-container {
   width: 335px;
-  background-color: #e8e8e8;
+  background-color: var(--second-background-color);
   border-radius: 30px;
   padding: 40px 20px;
 }
@@ -21,7 +21,7 @@
 /* =============== TITLE =============== */
 
 .exercises-title {
-  color: #1b1b1b;
+  color: var(--main-text-color);
 
   font-family: 'DM Sans';
   font-size: 32px;
@@ -32,7 +32,7 @@
   margin-bottom: 20px;
 
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
   gap: 8px;
 }
@@ -94,7 +94,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.28571;
-  color: #1b1b1b;
+  color: var(--main-text-color);
 }
 
 /* ==================== /SEARCH ================== */
@@ -105,13 +105,13 @@
 
 .filter-button {
   display: block;
-  background-color: #f6f6f6;
+  background-color: var(--second-text-color);
   border-radius: 30px;
   height: 32px;
   padding: 7px 14px;
   border: none;
 
-  color: #1b1b1b;
+  color: var(--main-text-color);
 
   font-family: 'DM Sans';
   font-size: 14px;
@@ -121,8 +121,13 @@
 }
 
 .filter-button:hover {
-  background-color: #7e847f;
-  color: #f6f6f6;
+  background-color: var(--third-background-color);
+  color: var(--second-text-color);
+}
+
+.active-btn {
+  background-color: var(--third-background-color);
+  color: var(--second-text-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -138,7 +143,7 @@
   }
 }
 
-/* =================== Galery =============== */
+/* =================== Gallery =============== */
 
 .gallery-list {
   display: flex;
@@ -184,6 +189,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2px;
 }
 
 .muscles-group {
@@ -192,7 +198,7 @@
   font-size: 20px;
   line-height: 1;
   text-align: center;
-  color: #f6f6f6;
+  color: var(--second-text-color);
 }
 
 .muscles-group-name {
@@ -241,10 +247,10 @@
   font-size: 20px;
   line-height: 1.6;
   letter-spacing: 0.04em;
-  color: #1b1b1b;
-  border: 1px solid #1b1b1b;
+  color: var(--main-text-color);
+  border: 1px solid var(--main-text-color);
   border-radius: 18px;
-  padding: 0px 12px;
+  padding: 0px 13px 0px 11px;
   width: 31px;
   height: 32px;
 }
@@ -255,14 +261,14 @@
   font-size: 20px;
   line-height: 1.6;
   letter-spacing: 0.04em;
-  color: rgba(27, 27, 27, 0.4);
+  color: var(--main-text-color_a-four);
 }
 
 .inactive-page:hover {
   transform: scale(1.2);
 }
 
-/* ================ Workout  cards ================== */
+/* ================ Workout cards ================== */
 
 .workout-list {
   display: flex;
@@ -271,7 +277,7 @@
 }
 .workout-item {
   padding: 16px;
-  background-color: #fff;
+  background-color: var(--white-background-color);
   border-radius: 15px;
   width: 295px;
   height: 165px;
@@ -293,11 +299,11 @@
   padding: 7px 8px;
   width: 76px;
   height: 26px;
-  background-color: #7e847f;
+  background-color: var(--third-background-color);
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 12px;
-  color: #f6f6f6;
+  color: var(--second-text-color);
 }
 
 .rating {
@@ -309,7 +315,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-  color: #1b1b1b;
+  color: var(--main-text-color);
   margin-right: 2px;
 }
 
@@ -321,11 +327,12 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.28571;
-  color: #1b1b1b;
+  color: var(--main-text-color);
   border: none;
   background-color: transparent;
 
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 .arrow {
@@ -348,8 +355,8 @@
   border-radius: 100%;
   width: 24px;
   height: 24px;
-  background-color: #7e847f;
-  padding: 4px 5px 5px 4px;
+  background-color: var(--accent-text-color);
+  padding: 4px 5px;
 }
 
 .workout-title {
@@ -357,7 +364,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 1;
-  color: #1b1b1b;
+  color: var(--main-text-color);
 }
 
 .workout-info-container {
@@ -370,7 +377,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(27, 27, 27, 0.4);
+  color: var(--main-text-color_a-four);
 }
 
 .workout-info-value {
@@ -378,7 +385,22 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-  color: #1b1b1b;
+  color: var(--main-text-color);
+}
+
+.icon-star {
+  fill: #eea10c;
+  margin-top: 1.5px;
+}
+
+.icon-arrow {
+  stroke: var(--main-text-color);
+  stroke-width: 1.2999999523162842px;
+  margin-left: 8px;
+}
+
+.icon-run {
+  fill: var(--second-background-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -412,6 +434,9 @@
   .top-wrap {
     margin-bottom: 25px;
   }
+  .workout-list {
+    gap: 28px 20px;
+  }
 }
 /* ==================== NEGATIVE RESULT ================ */
 
@@ -422,13 +447,13 @@
   line-height: 1.28571;
   letter-spacing: -0.01em;
   text-align: center;
-  color: #1b1b1b;
+  color: var(--main-text-color);
   padding-top: 164px;
   padding-bottom: 320px;
 }
 
 .no-result {
-  color: #7e847f;
+  color: var(--third-background-color);
 }
 @media screen and (min-width: 768px) {
   .negative-result-text {
@@ -452,6 +477,7 @@
     margin-bottom: 350px;
     padding-top: 0px;
     padding-bottom: 0px;
+    width: 684px;
   }
 }
 
