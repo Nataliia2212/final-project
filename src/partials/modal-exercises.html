@@ -1,1 +1,53 @@
-<p>modal</p>
+<div class="gallery-list">
+  <div class="gallery-item">
+    <button class="gallery-btn" id="1">Open modal</button>
+  </div>
+  <div class="gallery-item">
+    <button class="gallery-btn" id="2">Open modal</button>
+  </div>
+  <div class="gallery-item">
+    <button class="gallery-btn" id="3">Open modal</button>
+  </div>
+  <div class="gallery-item">
+    <button class="gallery-btn" id="4">Open modal</button>
+  </div>
+</div>
+<!-- дів для фону -->
+<!-- is-hidden -->
+<div class="exercise-modal-container" id="exerciseModal">
+  <!-- дів для модального вікна -->
+  <div class="modal-exercise-wrap">
+    <!-- кнопка закриття вікна -->
+    <button
+      type="button"
+      class="close-exercise-btn"
+      id="closeButtonExercise"
+      aria-label="Close button"
+    >
+      <svg
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.8332 8.16666L8.1665 19.8333M8.1665 8.16666L19.8332 19.8333"
+          stroke="#1B1B1B"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <!-- рендер вправи -->
+    <div class="card-markup-modal"></div>
+
+    <!-- кнопки -->
+    <div class="modal-button">
+      <button type="button" class="modal-add-favorite">Add to favorites</button>
+      <button type="button" class="modal-give-rating">Give a rating</button>
+    </div>
+  </div>
+</div>
