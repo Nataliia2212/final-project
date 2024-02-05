@@ -81,7 +81,7 @@ function openExercises(e) {
     refs.exercises_wrap.classList.add("active");
 
     // Додаємо слухачі для закриття модального вікна
-    refs.moodal_give_rating.addEventListener("click", closeModalExercises);
+    refs.moodal_give_rating.addEventListener("click", hideModalExercises);
     refs.exercises_container.addEventListener("click", closeModalExercisesOnClick);
     refs.close_btn.addEventListener("click", closeModalExercises);
     window.addEventListener("keydown", closeModalExercisesOnEsc);
@@ -114,6 +114,10 @@ function closeModalExercisesOnEsc(e) {
     if (e.key === "Escape") {
         closeModalExercises(e);
     }
+}
+
+function hideModalExercises(e) {
+  refs.exercises_wrap.classList.remove("active");
 }
 
 // Отримуємо дані з сервера
