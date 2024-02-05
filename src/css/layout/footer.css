@@ -1,5 +1,5 @@
 /* FOOTER */
-.site-footer {
+.footer-container {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -98,19 +98,20 @@
 
 /* PHONE */
 @media screen and (max-width: 767px) {
-  .site-footer {
+  .footer-container {
     background-image: linear-gradient(
         rgba(27, 27, 27, 0.7),
         rgba(27, 27, 27, 0.7)
       ),
       url('../../img/foooter/footer-bg-mobile.jpg');
     height: 471px;
+    border-radius: 30px;
   }
 
   @media screen and (min-resolution: 192dpi),
     screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 2dppx) {
-    .site-footer {
+    .footer-container {
       background-image: linear-gradient(
           rgba(27, 27, 27, 0.7),
           rgba(27, 27, 27, 0.7)
@@ -186,6 +187,7 @@
   .footer-privacy-container {
     margin-bottom: 20px;
   }
+
   .footer-privacy-paragraph {
     font-size: 12px;
     line-height: 0.83333;
@@ -202,7 +204,7 @@
 
 /* TABLET */
 @media screen and (min-width: 768px) {
-  .site-footer {
+  .footer-container {
     background-image: linear-gradient(
         rgba(27, 27, 27, 0.7),
         rgba(27, 27, 27, 0.7)
@@ -214,7 +216,7 @@
   @media screen and (min-resolution: 192dpi),
     screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 2dppx) {
-    .site-footer {
+    .footer-container {
       background-image: linear-gradient(
           rgba(27, 27, 27, 0.7),
           rgba(27, 27, 27, 0.7)
@@ -230,6 +232,7 @@
   .footer-information-container {
     display: flex;
     justify-content: space-between;
+    padding: 0px 48px;
     padding-bottom: 120px;
   }
 
@@ -319,7 +322,7 @@
 
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
-  .site-footer {
+  .footer-container {
     background-image: linear-gradient(
         rgba(27, 27, 27, 0.7),
         rgba(27, 27, 27, 0.7)
@@ -331,7 +334,7 @@
   @media screen and (min-resolution: 192dpi),
     screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 2dppx) {
-    .site-footer {
+    .footer-container {
       background-image: linear-gradient(
           rgba(27, 27, 27, 0.7),
           rgba(27, 27, 27, 0.7)

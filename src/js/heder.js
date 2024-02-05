@@ -1,3 +1,36 @@
+// const homeLink = document.querySelector('.js-link-home');
+// console.log(homeLink);
+// const favorLink = document.querySelector('.js-link-favor');
+// console.log(favorLink);
+
+// homeLink.addEventListener('click', function (event) {
+//   event.preventDefault();
+//   addClassHome();
+// });
+
+// favorLink.addEventListener('click', function (event) {
+//   event.preventDefault();
+//   addClassFavor();
+// });
+
+// function addClassHome() {
+//   homeLink.classList.add('site-favor');
+//   removeClassFavor();
+// }
+
+// function addClassFavor() {
+//   favorLink.classList.add('site-header-favor');
+//   removeClassHome();
+// }
+
+// function removeClassHome() {
+//   homeLink.classList.remove('site-favor');
+// }
+
+// function removeClassFavor() {
+//   favorLink.classList.remove('site-header-favor');
+// }
+
 // modal window
 
 (() => {
