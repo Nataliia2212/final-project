@@ -31,9 +31,14 @@ async function onExercisesClick(event) {
       restoreData();
 
     } else if (event.target.dataset.action === 'start') {
-       try {
-            const data = await search(event.target.id);
-            console.log(data.bodyPart)
+      try {
+        console.log(event.target.id)
+        
+         const data = await search(event.target.id);
+         console.log(data.results)
+         console.log(data.results._id)
+         return data.id
+         
        }
        catch (error) {
             console.log(error)
@@ -93,7 +98,7 @@ function markup(arr) {
         <div class="wrap-hhhh">
           <div class="wrap-heading">
             <p class="heading">Workout</p>
-            <button class="btn-trash" type="button" name="trash" trash>
+            <button class="btn-trash" type="button" name="trash" trash id="${_id}">
               <svg
                 class="icon-trash"
                 width="16"
@@ -110,7 +115,7 @@ function markup(arr) {
             </button>
           </div>
 
-          <button class="button" type="button" name="start" data-action="start">
+          <button class="button" type="button" name="start" data-action="start" id="${_id}">
             Start
             <svg class="icon-arrow" width="14" height="14" data-action="start">
               <use

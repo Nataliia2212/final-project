@@ -1,24 +1,23 @@
- :root {
-    --main-text-color: #1b1b1b;
-    --second-text-color: #f6f6f6;
-    --accent-text-color: #7e847f;
-    --second-text-color_a-six: rgba(246, 246, 246, 0.6);
-    --second-text-color_a-four: rgba(246, 246, 246, 0.4);
-    --main-text-color_a-four: rgba(27, 27, 27, 0.4);
-    --main-text-color_a-six: rgba(27, 27, 27, 0.6);
+:root {
+  --main-text-color: #1b1b1b;
+  --second-text-color: #f6f6f6;
+  --accent-text-color: #7e847f;
+  --second-text-color_a-six: rgba(246, 246, 246, 0.6);
+  --second-text-color_a-four: rgba(246, 246, 246, 0.4);
+  --main-text-color_a-four: rgba(27, 27, 27, 0.4);
+  --main-text-color_a-six: rgba(27, 27, 27, 0.6);
 
-    --main-background-color: #f6f6f6;
-    --second-background-color: #e8e8e8;
-    --white-background-color: #fff;
-    --third-background-color: #7e847f;
-    --dark-background-color: #1b1b1b;
+  --main-background-color: #f6f6f6;
+  --second-background-color: #e8e8e8;
+  --white-background-color: #fff;
+  --third-background-color: #7e847f;
+  --dark-background-color: #1b1b1b;
 
-    --main-btn-color: #7e847f;
-    --btn-color-hover-focus: #5f6560;
+  --main-btn-color: #7e847f;
+  --btn-color-hover-focus: #5f6560;
 
-    --main-btn-color_a-two: rgba(126, 132, 127, 0.2);
-    --btn-color-hover-focus_a-two: rgba(95, 101, 96, 0.2);
+  --main-btn-color_a-two: rgba(126, 132, 127, 0.2);
+  --btn-color-hover-focus_a-two: rgba(95, 101, 96, 0.2);
 
-    --transition-duration-and-timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-} 
-
+  --transition-duration-and-timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
