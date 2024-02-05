@@ -48,6 +48,8 @@ function openModalExercises(e) {
 
     idExercises = clickedExercises.id;
     
+  refs.moodal_give_rating.setAttribute('id', `${idExercises}`);
+  
     openExercises();
 
     catchExercises(idExercises);
