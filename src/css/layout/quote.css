@@ -1,0 +1,186 @@
+.quote__inner {
+  max-width: 375px;
+
+  margin: 0 auto;
+}
+
+.quote__wrapper {
+  
+  height: 272px;
+
+  position: relative;
+  padding: 42px 20px 40px 66px;
+  border-radius: 30px;
+  background: var(--accent-text-color);
+}
+
+.quote__title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--second-text-color);
+}
+
+.quote__title::before {
+  content: ' ';
+  position: absolute;
+  display: block;
+  top: 40px;
+  left: 20px;
+  width: 34px;
+  height: 32px;
+  fill: var(--second-text-color);
+  border-radius: 50%;
+  background-color: rgba(246, 246, 246, 0.1);
+  background-image: url('../../img/quote/runnig__man.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.quote__title::after {
+  content: ' ';
+  display: block;
+  top: 40px;
+  right: 20px;
+
+  width: 23.5px;
+  height: 19px;
+  padding: 6px 4px 4px 3px;
+  fill: var(--second-text-color);
+  background-image: url('../../img/quote/quote-icon--quotes.svg');
+  background-repeat: no-repeat;
+}
+
+blockquote {
+  margin: 14px 0 0 0;
+}
+
+.quote__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: var(--second-text-color_a-six);
+}
+
+.quote__text--author {
+  margin-top: 14px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--second-text-color);
+}
+
+@media screen and (max-width: 767px) {
+  .quote__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/*! =============== Tablet_768px =============== */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 16px;
+  }
+
+  .quote__inner {
+    max-width: 768px;
+  }
+
+  .quote__wrapper {
+    width: 704px;
+    height: 302px;
+
+    padding: 64px 80px 64px 130px;
+  }
+
+  .quote__title {
+    display: block;
+
+    font-size: 24px;
+    line-height: 1.33;
+  }
+
+  .quote__title::before {
+    content: ' ';
+    position: absolute;
+    display: block;
+
+    top: 64px;
+    left: 80px;
+    width: 34px;
+    height: 32px;
+    fill: var(--second-text-color);
+    border-radius: 50%;
+    background-color: rgba(246, 246, 246, 0.1);
+    background-image: url('../../img/quote/runnig__man.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .quote__title::after {
+    content: ' ';
+    display: block;
+
+    position: absolute;
+    top: 40px;
+    right: 80px;
+
+    width: 37px;
+    height: 31px;
+    fill: var(--second-text-color);
+    background-image: url('../../img/quote/quote-icon--quotes.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  blockquote {
+    margin-top: 32px;
+  }
+
+  .quote__text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .quote__text--author {
+    margin-top: 25px;
+  }
+
+  /* picture{
+
+  } */
+}
+
+/* ==============/ Tablet_768px =============== */
+
+/*! =============== Desktop_1440px ============== */
+@media screen and (min-width: 1440px) {
+  .quote__inner {
+    max-width: 1440px;
+    display: flex;
+  }
+
+  .quote__wrapper {
+    width: 704px;
+
+    padding: 64px 64px 64px 114px;
+  }
+
+  .quote__title::before {
+    left: 64px;
+  }
+
+  .quote__text {
+    margin-top: 16px;
+  }
+
+  .quote__img {
+    width: 704px;
+    /* height: 100%; */
+  }
+}
+
+/* ===============/ Desktop_1440px ============== */
