@@ -1,7 +1,7 @@
 import axiosInstance from "axios";
 
 const refs = {
-    gallery_btn: document.querySelector(".gallery-list"), 
+    gallery_btn: document.querySelector(".favorites-list"), 
     exercises_container: document.querySelector(".exercise-modal-container"),
     exercises_wrap: document.querySelector(".modal-exercise-wrap"),
     close_btn: document.querySelector(".close-exercise-btn"),
@@ -12,6 +12,7 @@ const refs = {
     body: document.querySelector("body"),
     
 }
+
 let idExercises;
 idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
 
@@ -36,15 +37,14 @@ refs.gallery_btn.addEventListener("click", openModalExercises);
 };
 
 function openModalExercises(e) {
-    if (!e.target.closest('.gallery-btn')) {
+    if (!e.target.closest('.button')) {
         return;
     };
     
-    const clickedExercises = e.target.closest('.gallery-btn');
+    const clickedExercises = e.target.closest('.button');
     if (!clickedExercises) return;
 
     idExercises = clickedExercises.id;
-    idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
     
     openExercises();
 
