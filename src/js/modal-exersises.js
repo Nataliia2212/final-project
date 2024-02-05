@@ -50,7 +50,11 @@ function openModalExercises(e) {
 
     catchExercises(idExercises);
 
-
+      let localStorageArr = localStorage.load('favorites-exercises');
+      if (!Array.isArray(localStorageArr)) {
+        localStorageArr = [];
+      }
+  var isElementPresent = localStorageArr.includes(idExercises);
 
 }
 
