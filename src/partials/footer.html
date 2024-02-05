@@ -1,6 +1,6 @@
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-container container">
+  <div class="container footer-container">
     <div class="footer-information-container">
       <div class="logo-links-container">
         <div class="logo-container">
@@ -39,10 +39,11 @@
           <form class="form-footer" id="newsletter-form" method="post">
             <label for="email">
               <input class="form-footer-input" type="email" id="email" name="email" placeholder="E-mail"
-                pattern="^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$" required>
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             </label>
+            <button id="sendButton" class="btn-footer" type="submit">Send</button>
           </form>
-          <button id="sendButton" class="btn-footer" type="button">Send</button>
+
         </div>
       </div>
     </div>

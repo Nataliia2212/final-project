@@ -104,8 +104,6 @@
         rgba(27, 27, 27, 0.7)
       ),
       url('../../img/foooter/footer-bg-mobile.jpg');
-    height: 471px;
-    border-radius: 30px;
   }
 
   @media screen and (min-resolution: 192dpi),
@@ -122,6 +120,10 @@
 
   .footer-container {
     padding-top: 40px;
+    height: 471px;
+    border-radius: 30px;
+    max-width: 335px;
+    /* margin: 0px 20px 0px 20px; */
   }
 
   .logo-container {
@@ -211,6 +213,7 @@
       ),
       url('../../img/foooter/footer-bg-tablet.jpg');
     height: 576px;
+    max-width: 736px;
   }
 
   @media screen and (min-resolution: 192dpi),
@@ -233,7 +236,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0px 48px;
-    padding-bottom: 120px;
+    margin-bottom: 120px;
   }
 
   .logo-links-container {
@@ -290,6 +293,7 @@
     max-width: 352px;
     height: 48px;
     padding: 12px;
+    margin-bottom: 20px;
   }
 
   .btn-footer {
@@ -298,7 +302,6 @@
     height: 48px;
     font-size: 16px;
     line-height: 1.5;
-    padding: 12px 157px;
   }
 
   .footer-privacy-container {
@@ -329,6 +332,7 @@
       ),
       url('../../img/foooter/footer-bg-pc.jpg');
     height: 454px;
+    max-width: 1408px;
   }
 
   @media screen and (min-resolution: 192dpi),
@@ -343,7 +347,7 @@
     }
   }
   .footer-information-container {
-    padding-bottom: 160px;
+    margin-bottom: 160px;
   }
   .motto-form-container {
     flex-direction: row;
