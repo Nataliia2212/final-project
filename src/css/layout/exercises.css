@@ -156,12 +156,10 @@
 .gallery-item {
   position: relative;
   cursor: pointer;
-}
-.img-container {
   overflow: hidden;
   background-color: rgba(16, 16, 16, 1);
-  width: 295px;
-  height: 232px;
+  width: 313px;
+  height: 250px;
   border-radius: 12px;
 }
 
@@ -214,6 +212,7 @@
   .gallery-list {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 14px;
     margin-bottom: 32px;
@@ -239,28 +238,14 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 8px;
-}
-
-.active-page {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 1.6;
-  letter-spacing: 0.04em;
-  color: var(--main-text-color);
-  border: 1px solid var(--main-text-color);
-  border-radius: 18px;
-  padding: 0px 13px 0px 11px;
-  width: 31px;
-  height: 32px;
-  cursor: pointer;
 }
 
 .page-number-item {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.6;
   letter-spacing: 0.04em;
   color: var(--main-text-color_a-four);
@@ -269,6 +254,20 @@
 .page-number-item:hover {
   transform: scale(1.2);
   cursor: pointer;
+}
+.active-page {
+  padding: 0px 12px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border: 1px solid var(--main-text-color);
+  border-radius: 18px;
+  font-size: 24px;
+  color: var(--main-text-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ================ Workout cards ================== */
@@ -344,8 +343,9 @@
 
 .workout-info {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 6px 16px;
+  gap: 6px;
 }
 
 .workout-container {
@@ -368,6 +368,12 @@
   font-size: 20px;
   line-height: 1;
   color: var(--main-text-color);
+}
+
+.workout-title.single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .workout-info-container {
@@ -440,11 +446,21 @@
     width: 424px;
     height: 141px;
   }
+  .workout-info {
+    display: flex;
+    gap: 0 16px;
+    justify-content: flex-start;
+  }
   .top-wrap {
     margin-bottom: 25px;
   }
   .workout-list {
     gap: 28px 20px;
+  }
+  .workout-title:hover {
+    position: absolute;
+    transform: translateX(40px);
+    background-color: var(--white-background-color);
   }
 }
 /* ==================== NEGATIVE RESULT ================ */
