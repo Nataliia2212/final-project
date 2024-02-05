@@ -50,11 +50,22 @@ function openModalExercises(e) {
 
     catchExercises(idExercises);
 
-      let localStorageArr = localStorage.load('favorites-exercises');
-      if (!Array.isArray(localStorageArr)) {
-        localStorageArr = [];
-      }
-  var isElementPresent = localStorageArr.includes(idExercises);
+  let localStorageData = localStorage.getItem('favorites-exercises');
+  let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
+
+  if (!Array.isArray(localStorageArr)) {
+    localStorageArr = [];
+  }
+
+  let isElementPresent = localStorageArr.some(function(exercise) {
+  return exercise._id === idExercises;
+});
+
+  if (isElementPresent) {
+    refs.modal_add_favorite.textContent = "Remove from ";
+  } else {
+      refs.modal_add_favorite.textContent = "Add to favorites";
+  }
 
 }
 
@@ -213,5 +224,23 @@ function markupDescription(exerciseArr) {
 }
 
 // FAVORITES
-function addToFavorite(){}
+function addToFavorite(e) {
+  // Перевірка
+    let localStorageData = localStorage.getItem('favorites-exercises');
+    let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
+
+    if (!Array.isArray(localStorageArr)) {
+      localStorageArr = [];
+  }
+
+    if (refs.modal_add_favorite.textContent === "Add to favorites") {
+    localStorageArr.push(String(idExercises));
+    localStorage.save('favorites-exercises', localStorageArr);
+    refs.modal_add_favorite.textContent = "Remove from ";
+  } else {
+    localStorage.removeItem('favorites-exercises', String(idExercises));
+    refs.modal_add_favorite.textContent = "Add to favorites";
+  }
+  
+}
 
