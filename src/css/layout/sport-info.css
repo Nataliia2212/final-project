@@ -1,0 +1,135 @@
+/* .container {
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.sport-info-pic {
+  width: 335px;
+  height: 269px;
+  border-radius: 30px;
+}
+
+.wrapper-text{
+position: relative;
+width: 335px;
+height: 269px;
+border-radius: 30px;
+background-color: #1B1B1B;
+padding: 40px 20px 40px 70px;
+}
+
+.icon-background{
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(246, 246, 246, 0.1);
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h-icon{
+    fill:#f6f6f6;
+}
+
+.title-text-block3 {
+  color: #f6f6f6;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'DM Sans';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4; /* 140% */
+  margin-bottom: 2px;
+}
+
+.main-text-style.one{
+    color: rgba(246, 246, 246, 0.6);
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28; /* 128.571% */
+    margin-bottom: 14px;
+}
+.main-text-style.two{
+color: rgba(246, 246, 246, 0.60);
+font-family: "DM Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 1.28; /* 128.571% */
+
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+padding: 0;
+  }
+
+  .sport-info-pic {
+    width: 736px;
+    height: 302px;
+    border-radius: 50px;
+  }
+
+  .wrapper-text{
+width: 736px;
+height: 302px;
+border-radius: 50px;
+background-color: #1B1B1B;
+padding: 64px 96px 64px 114px;
+}
+
+.icon-background{
+    top: 64px;
+    left: 64px;
+    width: 32px;
+    height: 32px;
+}
+
+.title-text-block3 {
+    font-size: 24px;
+
+  }
+
+  .main-text-style.one{
+   margin-bottom: 25px; }
+
+  .main-text-style.two{
+    font-size: 16px;
+    line-height: 1.5; }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 0;
+  }
+
+  .wrapper-flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .sport-info-pic {
+    width: 704px;
+    height: 302px;
+    border-radius: 50px;
+  }
+
+  .wrapper-text{
+width: 704px;
+height: 302px;
+border-radius: 50px;
+background-color: #1B1B1B;
+padding: 64px 64px 64px 114px;
+}
+
+}
