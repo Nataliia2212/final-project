@@ -34,7 +34,7 @@ function onExercisesClick(event) {
     }
 }
 
-function deleteExercise(id) {
+export function deleteExercise(id) {
     const exercises = loadFromLS(keyLS)
     const ex = [];
   
@@ -121,7 +121,7 @@ function render(data) {
   }
 }
 
-function restoreData() {
+export function restoreData() {
   const data = loadFromLS(keyLS) || [];
   
   render(data)
