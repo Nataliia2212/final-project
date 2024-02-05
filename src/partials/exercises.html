@@ -1,1 +1,50 @@
-<h2>Exercises</h2>
+<section>
+  <div class="exercises-container container">
+    <h2 class="exercises-title">
+      Exercises /
+      <span class="is-hidden choosen-content">Waist</span>
+    </h2>
+    <div class="search-menu">
+      <ul class="filter-list">
+        <li class="filter-button-item">
+          <button type="button" class="filter-button active-btn" name="muscles">
+            Muscles
+          </button>
+        </li>
+        <li>
+          <button type="button" class="filter-button" name="body-parts">
+            Body parts
+          </button>
+        </li>
+        <li class="filter-button-item">
+          <button type="button" class="filter-button" name="equipment">
+            Equipment
+          </button>
+        </li>
+      </ul>
+      <form class="form temporary-hidden">
+        <input
+          type="search"
+          name="search-field"
+          class="search"
+          placeholder="Search..."
+        />
+        <button class="svg-button">
+          <svg class="icon-search" width="18" height="18">
+            <use href="../img/sprite.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <ul class="gallery-list"></ul>
+    <ul class="page-number-list"></ul>
+    <div class="negative-result temporary-hidden">
+      <p class="negative-result-text">
+        Unfortunately, <span class="no-result">no results</span> were found. You
+        may want to consider other search options to find the exercise you are
+        looking for. Our range is wide and you have the opportunity to find more
+        options that suit your needs.
+      </p>
+    </div>
+  </div>
+</section>
