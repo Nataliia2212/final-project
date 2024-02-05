@@ -69,10 +69,10 @@ line-height: 1.28; /* 128.571% */
 
 }
 @media screen and (min-width: 768px) {
-  .container {
+  /* .container {
     max-width: 768px;
 padding: 0;
-  }
+  } */
 
   .sport-info-pic {
     width: 736px;
@@ -108,10 +108,10 @@ padding: 64px 96px 64px 114px;
     line-height: 1.5; }
 }
 @media screen and (min-width: 1440px) {
-  .container {
+  /* .container {
     max-width: 1440px;
     padding: 0;
-  }
+  } */
 
   .wrapper-flex{
     display: flex;
