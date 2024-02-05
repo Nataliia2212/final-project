@@ -44,6 +44,7 @@ screen and (min-resolution: 2dppx) {
 .hero-info {
   padding-top: 20px;
   border-radius: 30px;
+  background-color: var(--white-background-color);
   width: 335px;
   height: 365px;
 }
