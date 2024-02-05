@@ -30,19 +30,6 @@ async function onExercisesClick(event) {
       deleteExercise(event.target.id)
       restoreData();
 
-    } else if (event.target.dataset.action === 'start') {
-      try {
-        console.log(event.target.id)
-        
-         const data = await search(event.target.id);
-         console.log(data.results)
-         console.log(data.results._id)
-         return data.id
-         
-       }
-       catch (error) {
-            console.log(error)
-        }
     } else {
         return
     }
