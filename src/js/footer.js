@@ -1,10 +1,16 @@
 import axios from 'axios';
 
-function submitForm() {
+const form = document.getElementById('newsletter-form');
+
+function submitForm(event) {
+  event.preventDefault();
+
+  console.log("Form submitted!");
+
   const email = document.getElementById('email').value;
 
   const data = {
-    email: email
+    email
   };
 
   axios.post('https://energyflow.b.goit.study/api/subscription', data)
@@ -18,6 +24,4 @@ function submitForm() {
     });
 }
 
-const sendButton = document.getElementById('sendButton');
-
-sendButton.addEventListener('click', submitForm);
+form.addEventListener('submit', submitForm);
