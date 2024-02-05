@@ -1,4 +1,6 @@
 import axiosInstance from "axios";
+import { saveToLS, loadFromLS } from "./localStorage";
+import { deleteExercise, restoreData } from './favorites-block';
 
 const refs = {
     gallery_btn: document.querySelector(".favorites-list"), 
@@ -14,7 +16,7 @@ const refs = {
 }
 
 let idExercises;
-idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
+// idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
 
 // API 
 
@@ -223,8 +225,11 @@ function markupDescription(exerciseArr) {
       </div>`
 }
 
+
+
+console.log(idExercises)
 // FAVORITES
-function addToFavorite(e) {
+async function addToFavorite() {
   // Перевірка
     let localStorageData = localStorage.getItem('favorites-exercises');
     let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
@@ -233,13 +238,33 @@ function addToFavorite(e) {
       localStorageArr = [];
   }
 
-    if (refs.modal_add_favorite.textContent === "Add to favorites") {
-    localStorageArr.push(String(idExercises));
-    localStorage.save('favorites-exercises', localStorageArr);
-    refs.modal_add_favorite.textContent = "Remove from ";
+let data_favorites = await modalExercisesApi.getExercisesById(`${idExercises}`);
+  if (refs.modal_add_favorite.textContent === "Add to favorites") {
+    const info = {
+      _id: data_favorites._id,
+      bodyPart: data_favorites.bodyPart,
+      equipment: data_favorites.equipment,
+      gifUrl: data_favorites.gifUrl,
+      name: data_favorites.name,
+      target: data_favorites.target,
+      description: data_favorites.description,
+      rating: data_favorites.rating,
+      burnedCalories: data_favorites.burnedCalories,
+      time: data_favorites.time,
+      popularity: data_favorites.popularity,
+    };
+    // saveToLS(0, info);
+
+    localStorageArr.push(info);
+    const jsonString = JSON.stringify(localStorageArr);
+
+    localStorage.setItem('favorites-exercises', jsonString);
+      refs.modal_add_favorite.textContent = "Remove from ";
+      
   } else {
-    localStorage.removeItem('favorites-exercises', String(idExercises));
-    refs.modal_add_favorite.textContent = "Add to favorites";
+      refs.modal_add_favorite.textContent = "Add to favorites";
+      deleteExercise(idExercises);
+      restoreData();
   }
   
 }
