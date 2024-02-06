@@ -3,7 +3,8 @@ import { saveToLS, loadFromLS } from "./localStorage";
 import { deleteExercise, restoreData } from './favorites-block';
 
 const refs = {
-    gallery_btn: document.querySelector(".favorites-list"), 
+  favorites_btn: document.querySelector(".favorites-list"), 
+  gallery_btn: document.querySelector(".gallery-list"),
     exercises_container: document.querySelector(".exercise-modal-container"),
     exercises_wrap: document.querySelector(".modal-exercise-wrap"),
     close_btn: document.querySelector(".close-exercise-btn"),
@@ -14,7 +15,7 @@ const refs = {
     body: document.querySelector("body"),
     
 }
-
+console.log(refs.gallery_btn);
 let idExercises;
 // idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
 
@@ -31,6 +32,12 @@ class goitGlobalAPI {
     }
  }
 const modalExercisesApi = new goitGlobalAPI();
+
+try {
+refs.favorites_btn.addEventListener("click", openModalExercises);
+}catch (error) {
+  console.log(error)
+};
 
 try {
 refs.gallery_btn.addEventListener("click", openModalExercises);
