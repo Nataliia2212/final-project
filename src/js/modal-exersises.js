@@ -5,7 +5,6 @@ import { restoreData } from './favorites-block';
 const keyLS = "favorites-exercises";
 const refs = {
   favorites_btn: document.querySelector(".favorites-list"), 
-  gallery_btn: document.querySelector(".gallery-list"),
     exercises_container: document.querySelector(".exercise-modal-container"),
     exercises_wrap: document.querySelector(".modal-exercise-wrap"),
     close_btn: document.querySelector(".close-exercise-btn"),
@@ -36,12 +35,6 @@ const modalExercisesApi = new goitGlobalAPI();
 
 try {
 refs.favorites_btn.addEventListener("click", openModalExercises);
-}catch (error) {
-  console.log(error)
-};
-
-try {
-refs.gallery_btn.addEventListener("click", openModalExercises);
 }catch (error) {
   console.log(error)
 };
