@@ -99,7 +99,7 @@ function markup(arr) {
             </svg>
           </div>
 
-          <h3 class="item-title">${name}</h3>
+          <h3 class="item-title single-line">${name}</h3>
         </div>
         <div class="wrap-descr">
           <p class="text">Burned calories:<span>${burnedCalories} / ${time} min</span></p>
