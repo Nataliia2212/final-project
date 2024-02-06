@@ -50,7 +50,6 @@ let elem = document.getElementsByClassName('active-btn');
 const pages = document.querySelector('.page-number-list');
 let mediaT = window.matchMedia('(min-width: 768px)');
 let mediaD = window.matchMedia('(min-width: 1440px)');
-const exercisesFilter = document.querySelectorAll('.gallery-item');
 
 async function defaultSettings() {
   title.textContent = 'Exercises';
@@ -83,7 +82,7 @@ async function defaultSettings() {
 
 defaultSettings();
 
-filterBTN.addEventListener('click', onFilterBtnClick);
+// filterBTN.addEventListener('click', onFilterBtnClick);
 
 async function onFilterBtnClick(e) {
   btn.forEach(button => {

@@ -1,5 +1,5 @@
 .quote__inner {
-  max-width: 375px;
+  width: 375px;
 
   margin: 0 auto;
 }
@@ -86,11 +86,10 @@ blockquote {
   } */
 
   .quote__inner {
-    max-width: 768px;
+    width: 736px;
   }
 
   .quote__wrapper {
-    width: 704px;
     height: 302px;
 
     padding: 64px 80px 64px 130px;
@@ -149,9 +148,7 @@ blockquote {
     margin-top: 25px;
   }
 
-  /* picture{
-
-  } */
+  
 }
 
 /* ==============/ Tablet_768px =============== */
@@ -159,7 +156,7 @@ blockquote {
 /*! =============== Desktop_1440px ============== */
 @media screen and (min-width: 1440px) {
   .quote__inner {
-    max-width: 1440px;
+    width: 1440px;
     display: flex;
   }
 

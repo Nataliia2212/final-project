@@ -1,18 +1,22 @@
 import axiosInstance from "axios";
+import { saveToLS, loadFromLS } from "./localStorage";
+import { deleteExercise, restoreData } from './favorites-block';
 
 const refs = {
-    gallery_btn: document.querySelector(".gallery-list"), 
+    gallery_btn: document.querySelector(".favorites-list"), 
     exercises_container: document.querySelector(".exercise-modal-container"),
     exercises_wrap: document.querySelector(".modal-exercise-wrap"),
     close_btn: document.querySelector(".close-exercise-btn"),
     card_markup_modal: document.querySelector(".card-markup-modal"),
     modal_button: document.querySelector(".modal-button"),
     modal_add_favorite: document.querySelector(".modal-add-favorite"),
+    moodal_give_rating: document.querySelector(".modal-give-rating"),
     body: document.querySelector("body"),
     
 }
+
 let idExercises;
-idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
+// idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
 
 // API 
 
@@ -35,19 +39,37 @@ refs.gallery_btn.addEventListener("click", openModalExercises);
 };
 
 function openModalExercises(e) {
-    if (!e.target.closest('.gallery-btn')) {
+    if (!e.target.closest('.button')) {
         return;
     };
     
-    const clickedExercises = e.target.closest('.gallery-btn');
+    const clickedExercises = e.target.closest('.button');
     if (!clickedExercises) return;
 
     idExercises = clickedExercises.id;
-    idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
     
+  refs.moodal_give_rating.setAttribute('id', `${idExercises}`);
+  
     openExercises();
 
     catchExercises(idExercises);
+
+  let localStorageData = localStorage.getItem('favorites-exercises');
+  let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
+
+  if (!Array.isArray(localStorageArr)) {
+    localStorageArr = [];
+  }
+
+  let isElementPresent = localStorageArr.some(function(exercise) {
+  return exercise._id === idExercises;
+});
+
+  if (isElementPresent) {
+    refs.modal_add_favorite.textContent = "Remove from ";
+  } else {
+      refs.modal_add_favorite.textContent = "Add to favorites";
+  }
 
 }
 
@@ -59,7 +81,7 @@ function openExercises(e) {
     refs.exercises_wrap.classList.add("active");
 
     // Додаємо слухачі для закриття модального вікна
-    
+    refs.moodal_give_rating.addEventListener("click", hideModalExercises);
     refs.exercises_container.addEventListener("click", closeModalExercisesOnClick);
     refs.close_btn.addEventListener("click", closeModalExercises);
     window.addEventListener("keydown", closeModalExercisesOnEsc);
@@ -92,6 +114,10 @@ function closeModalExercisesOnEsc(e) {
     if (e.key === "Escape") {
         closeModalExercises(e);
     }
+}
+
+function hideModalExercises(e) {
+  refs.exercises_wrap.classList.remove("active");
 }
 
 // Отримуємо дані з сервера
@@ -205,5 +231,47 @@ function markupDescription(exerciseArr) {
       </div>`
 }
 
+
+
+console.log(idExercises)
 // FAVORITES
-function addToFavorite(){}
+async function addToFavorite() {
+  // Перевірка
+    let localStorageData = localStorage.getItem('favorites-exercises');
+    let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
+
+    if (!Array.isArray(localStorageArr)) {
+      localStorageArr = [];
+  }
+
+let data_favorites = await modalExercisesApi.getExercisesById(`${idExercises}`);
+  if (refs.modal_add_favorite.textContent === "Add to favorites") {
+    const info = {
+      _id: data_favorites._id,
+      bodyPart: data_favorites.bodyPart,
+      equipment: data_favorites.equipment,
+      gifUrl: data_favorites.gifUrl,
+      name: data_favorites.name,
+      target: data_favorites.target,
+      description: data_favorites.description,
+      rating: data_favorites.rating,
+      burnedCalories: data_favorites.burnedCalories,
+      time: data_favorites.time,
+      popularity: data_favorites.popularity,
+    };
+    // saveToLS(0, info);
+
+    localStorageArr.push(info);
+    const jsonString = JSON.stringify(localStorageArr);
+
+    localStorage.setItem('favorites-exercises', jsonString);
+      refs.modal_add_favorite.textContent = "Remove from ";
+      
+  } else {
+      refs.modal_add_favorite.textContent = "Add to favorites";
+      deleteExercise(idExercises);
+      restoreData();
+  }
+  
+}
+
