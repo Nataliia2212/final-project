@@ -35,6 +35,7 @@ class ExercisesAPI {
       equipment: this.equipment,
       limit: this.perPage,
       page: this.page,
+      name: this.name,
     };
     return axios.get(url, { params }).then(response => response.data);
   }
@@ -50,7 +51,11 @@ let elem = document.getElementsByClassName('active-btn');
 const pages = document.querySelector('.page-number-list');
 let mediaT = window.matchMedia('(min-width: 768px)');
 let mediaD = window.matchMedia('(min-width: 1440px)');
-const exercisesFilter = document.querySelectorAll('.gallery-item');
+const spanElement = document.querySelector('.choosen-content');
+const form = document.querySelector('.form');
+const input = document.querySelector('.search');
+const submitBtn = document.querySelector('.svg-button');
+const negativeRes = document.querySelector('.negative-result');
 
 async function defaultSettings() {
   title.textContent = 'Exercises';
@@ -211,6 +216,9 @@ async function onGalleryIMGClick(evt) {
     const target = evt.target.parentNode;
     let filterName = target.querySelector('.muscles-group');
     let filterExercise = target.querySelector('.muscles-group-name');
+    spanElement.classList.remove('is-hidden');
+
+    title.textContent = `Exercises /`;
 
     if (mediaD.matches) {
       exercisesAPI.perPage = 9;
@@ -241,6 +249,9 @@ async function onGalleryIMGClick(evt) {
       pageMarkup = pagesTemplate(data.totalPages);
     }
     pages.innerHTML = pageMarkup;
+    if (data.totalPages === 0) {
+      negativeRes.classList.remove('is-hidden');
+    }
 
     const firstPage = pages.querySelector('li:first-child');
     firstPage.classList.add('active-page');
@@ -308,3 +319,19 @@ function workoutTemplate({
 function workoutsTemplate(workouts) {
   return workouts.map(workoutTemplate).join('');
 }
+
+form.addEventListener('submit', onSearch);
+
+// async function onSearch(e) {
+//   e.preventDefault();
+//   let searchInput = input.value;
+//   console.log(searchInput);
+//   const res = await exercisesAPI.fetchExercises();
+//   if (res.name.includes(searchInput)) {
+//     const workoutMarkup = workoutsTemplate(res.results);
+//     gallery.innerHTML = workoutMarkup;
+//   } else {
+//     gallery.innerHTML = '';
+//     result.classList.remove('is-hidden');
+//   }
+// }

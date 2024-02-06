@@ -99,9 +99,9 @@
 
 /* ==================== /SEARCH ================== */
 
-/* .is-hidden {
+.is-hidden {
   display: none;
-} */
+}
 
 .filter-button {
   display: block;
