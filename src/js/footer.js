@@ -5,10 +5,15 @@ const emailInput = document.getElementById('email');
 
 function submitForm(event) {
   event.preventDefault();
-
-  emailInput.setAttribute('pattern', '^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
-
+  
+  const regex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+  
   const email = emailInput.value;
+
+  if(!regex.test(email)){
+    console.log("error!")
+    return;
+  }
 
   const data = {
     email
