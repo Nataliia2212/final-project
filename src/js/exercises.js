@@ -321,7 +321,7 @@ function workoutsTemplate(workouts) {
   return workouts.map(workoutTemplate).join('');
 }
 
-form.addEventListener('submit', onSearch);
+// form.addEventListener('submit', onSearch);
 
 // async function onSearch(e) {
 //   e.preventDefault();
