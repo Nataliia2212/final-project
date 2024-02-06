@@ -52,14 +52,13 @@ let elem = document.getElementsByClassName('active-btn');
 const pages = document.querySelector('.page-number-list');
 let mediaT = window.matchMedia('(min-width: 768px)');
 let mediaD = window.matchMedia('(min-width: 1440px)');
-const spanElement = document.querySelector('.choosen-content');
-const form = document.querySelector('.form');
-const input = document.querySelector('.search');
-const submitBtn = document.querySelector('.svg-button');
-const negativeRes = document.querySelector('.negative-result');
+
+// const form = document.querySelector('.form');
+// const input = document.querySelector('.search');
+// const submitBtn = document.querySelector('.svg-button');
+// const negativeRes = document.querySelector('.negative-result');
 
 async function defaultSettings() {
-  title.textContent = 'Exercises';
   exercisesAPI.filter = 'Muscles';
   exercisesAPI.page = 1;
 
@@ -92,6 +91,8 @@ defaultSettings();
 filterBTN.addEventListener('click', onFilterBtnClick);
 
 async function onFilterBtnClick(e) {
+  title.textContent = 'Exercises';
+
   btn.forEach(button => {
     if (
       button.getElementsByClassName('active-btn') ===
@@ -119,16 +120,13 @@ async function onFilterBtnClick(e) {
 
   if (!mediaT.matches) {
     exercisesAPI.perPage = 8;
-    const result = await exercisesAPI.fetchImages();
-    markup = imagesTemplate(result.results);
-    pageMarkup = pagesTemplate(result.totalPages);
   } else {
     exercisesAPI.perPage = 12;
-    const result = await exercisesAPI.fetchImages();
-    markup = imagesTemplate(result.results);
-    pageMarkup = pagesTemplate(result.totalPages);
   }
-
+  exercisesAPI.page = 1;
+  const result = await exercisesAPI.fetchImages();
+  markup = imagesTemplate(result.results);
+  pageMarkup = pagesTemplate(result.totalPages);
   if (elem) {
     gallery.innerHTML = markup;
   }
@@ -181,11 +179,11 @@ async function handlePages(ev) {
     if (elem) {
       gallery.innerHTML = markup;
     }
-    const data = await exercisesAPI.fetchExercises();
-    const workoutMarkup = workoutsTemplate(data.results);
-    if (elem) {
-      gallery.innerHTML = workoutMarkup;
-    }
+    // const data = await exercisesAPI.fetchExercises();
+    // const workoutMarkup = workoutsTemplate(data.results);
+    // if (elem) {
+    //   gallery.innerHTML = workoutMarkup;
+    // }
   } else {
     return;
   }
@@ -206,20 +204,22 @@ function pagesTemplate(total) {
 gallery.addEventListener('click', onGalleryIMGClick);
 
 async function onGalleryIMGClick(evt) {
+  form.classList.remove('is-hidden');
   exercisesAPI.page = 1;
-  if (
-    evt.target.nodeName === 'IMG' ||
-    evt.target.nodeName === 'LI' ||
-    evt.target.nodeName === 'BUTTON'
-  ) {
+  const liElem = evt.target.closest('.gallery-item');
+  if (liElem) {
     let workoutMarkup;
     let pageMarkup;
+    const hightLightedText =
+      liElem.lastElementChild.firstElementChild.textContent;
     const target = evt.target.parentNode;
     let filterName = target.querySelector('.muscles-group');
     let filterExercise = target.querySelector('.muscles-group-name');
-    spanElement.classList.remove('is-hidden');
 
-    title.textContent = `Exercises /`;
+    title.innerHTML = `<h2 class="exercises-title">
+      Exercises /
+      <span class="choosen-content">${hightLightedText}t</span>
+    </h2>`;
 
     if (mediaD.matches) {
       exercisesAPI.perPage = 9;
@@ -250,12 +250,11 @@ async function onGalleryIMGClick(evt) {
       pageMarkup = pagesTemplate(data.totalPages);
     }
     pages.innerHTML = pageMarkup;
-    if (data.totalPages === 0) {
-      negativeRes.classList.remove('is-hidden');
+    const data = await exercisesAPI.fetchExercises();
+    workoutMarkup = workoutsTemplate(data.results);
+    if (elem) {
+      gallery.innerHTML = workoutMarkup;
     }
-
-    const firstPage = pages.querySelector('li:first-child');
-    firstPage.classList.add('active-page');
   } else {
     return;
   }
@@ -328,11 +327,12 @@ function workoutsTemplate(workouts) {
 //   let searchInput = input.value;
 //   console.log(searchInput);
 //   const res = await exercisesAPI.fetchExercises();
-//   if (res.name.includes(searchInput)) {
+//   const value = res.results.map(el => el.name).join('');
+//   if (value.includes(searchInput)) {
 //     const workoutMarkup = workoutsTemplate(res.results);
 //     gallery.innerHTML = workoutMarkup;
 //   } else {
 //     gallery.innerHTML = '';
-//     result.classList.remove('is-hidden');
+//     negativeRes.classList.remove('is-hidden');
 //   }
 // }
