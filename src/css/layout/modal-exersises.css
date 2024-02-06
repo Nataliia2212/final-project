@@ -4,6 +4,10 @@ body.modal {
   overflow-x: hidden;
 }
 
+.exercise-modal-container {
+  overflow-y: auto;
+}
+
 /* БЕКДРОП */
 
 .exercise-modal-container {
