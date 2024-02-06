@@ -1,13 +1,14 @@
 import axios from 'axios';
 
 const form = document.getElementById('newsletter-form');
+const emailInput = document.getElementById('email');
 
 function submitForm(event) {
   event.preventDefault();
 
-  console.log("Form submitted!");
+  emailInput.setAttribute('pattern', '^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
 
-  const email = document.getElementById('email').value;
+  const email = emailInput.value;
 
   const data = {
     email
