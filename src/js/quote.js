@@ -44,6 +44,7 @@ async function setFetchQuote(currentDay) {
   saveToLS(keyStorage, quoteData);
 }
 
+// writing our object(quoteData) to our html markup fields
 function addDataQuoteInHTML() {
     storageQuote = loadFromLS(keyStorage);
     refs.quoteText.textContent = storageQuote.data.quote;
