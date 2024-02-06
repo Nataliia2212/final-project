@@ -1,21 +1,51 @@
 import axios from 'axios';
-import {loadFromLS, saveToLS} from './localStorage.js';
+import { loadFromLS, saveToLS } from './localStorage.js';
 
 const refs = {
-    quoteText: document.querySelector('.js__quote-text'),
-    quoteAuthor: document.querySelector('.js__quote-author')
-}
+  quoteText: document.querySelector('.js__quote-text'),
+  quoteAuthor: document.querySelector('.js__quote-author'),
+};
 
 const BASE_URL = 'https://energyflow.b.goit.study/api/quote';
 
+const keyStorage = 'currentQuote';
+
+let storageQuote = null;
+
+
+
 async function getQuote() {
-    const {data} = await axios.get(BASE_URL);
+  const today = new Date();
+  const currentDay = today.getDate();
 
-    console.log(data);
+  const storageDate = loadFromLS(keyStorage); // creating a new variable just for convinience to use it with logic operators
 
-    refs.quoteText.textContent = data.quote;
-    refs.quoteAuthor.textContent = data.author;
 
+  if ((storageDate && currentDay !== storageDate.currentDay) || storageDate === null) {
+    await setFetchQuote(currentDay);
+    addDataQuoteInHTML()
+    console.log('A new day has been come.');
+  } else {
+    addDataQuoteInHTML()
+    console.log('It is the same day, yet.');
+  }
 }
 
-getQuote()
+getQuote();
+
+async function setFetchQuote(currentDay) {
+  const { data } = await axios.get(BASE_URL);
+
+  const quoteData = {
+    currentDay,
+    data,
+  };
+
+  saveToLS(keyStorage, quoteData);
+}
+
+function addDataQuoteInHTML() {
+    storageQuote = loadFromLS(keyStorage);
+    refs.quoteText.textContent = storageQuote.data.quote;
+    refs.quoteAuthor.textContent = storageQuote.data.author;
+}
