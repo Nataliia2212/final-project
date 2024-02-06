@@ -9,7 +9,7 @@
  .hero-img {
     border-radius: 30px;
     max-width: 335px;
-    height: 387px;
+    height: 387px; 
     background-repeat: no-repeat;
     background-size: cover;
     background-image: linear-gradient(rgba(46, 47, 66, 0.10),
@@ -45,7 +45,7 @@ screen and (min-resolution: 2dppx) {
   padding: 60px 20px; 
   border-radius: 30px;
   background-color: var(--white-background-color);
-  width: 335px;
+  max-width: 335px;
   height: 365px;
 }
 .hero-title {
@@ -108,17 +108,16 @@ screen and (min-resolution: 2dppx) {
   }
  .hero-info {
    border-radius: 0 50px 50px 50px;
-   padding-top: 0px;
-   width: 480px;
+   padding-top: 231px;
+   padding-left: 30px;
+   padding-right: 30px;
+    min-width: 480px;
    height: 900px;
   }
  .hero-title {
    font-size: 98px;
    line-height: 0.96939;
-   letter-spacing: -0.02em;   
-   padding-top: 231px;
-   padding-left: 30px;
-   padding-right: 30px;
+   letter-spacing: -0.02em;    
  }
  .hero-title-body {
   font-size: 98px;
@@ -128,10 +127,7 @@ screen and (min-resolution: 2dppx) {
   .hero-text {
     font-size: 18px;
     line-height: 1.33333;
-    letter-spacing: -0.01em;
-    padding-top: 25px;
-    padding-left: 30px;
-    padding-right: 30px;
+    letter-spacing: -0.01em;    
   }
  }
 
@@ -158,16 +154,16 @@ screen and (min-resolution: 2dppx) {
  }  
  .hero-info {
    border-radius: 0 50px 50px 50px;
-   width: 704px;
+    padding-top: 225px;
+    padding-left: 32px;
+    padding-bottom: 25px;
+   min-width: 704px;
    height: 884px;
  }
 .hero-title {
   font-size: 120px;
   line-height: 0.95833;
-  letter-spacing: -0.02em;
-  padding-top: 225px;
-  padding-left: 32px;
-  padding-bottom: 25px;
+  letter-spacing: -0.02em;  
 }
 .hero-title-body {
   font-size: 120px;
