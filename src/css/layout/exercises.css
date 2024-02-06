@@ -321,7 +321,7 @@
   margin-right: 2px;
 }
 
-.start-btn {
+.button {
   width: 54px;
   height: 18px;
   padding: 2px 0;
@@ -428,7 +428,7 @@
     width: 313px;
     height: 165px;
   }
-  .start-btn {
+  .button {
     font-size: 16px;
     height: 24px;
     width: 61px;
@@ -438,7 +438,7 @@
   }
 }
 @media screen and (min-width: 1440px) {
-  .start-btn {
+  .button {
     width: 61px;
     height: 24px;
   }
