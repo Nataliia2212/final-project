@@ -48,7 +48,7 @@ let elem = document.getElementsByClassName('active-btn');
 const pages = document.querySelector('.page-number-list');
 let mediaT = window.matchMedia('(min-width: 768px)');
 let mediaD = window.matchMedia('(min-width: 1440px)');
-
+console.log('good')
 async function defaultSettings() {
   title.textContent = 'Exercises';
   exercisesAPI.filter = 'Muscles';
@@ -81,7 +81,7 @@ async function defaultSettings() {
 
 defaultSettings();
 
-filterBTN.addEventListener('click', onFilterBtnClick);
+// filterBTN.addEventListener('click', onFilterBtnClick);
 
 async function onFilterBtnClick(e) {
   btn.forEach(button => {
@@ -202,7 +202,7 @@ function pagesTemplate(total) {
 gallery.addEventListener('click', onGalleryIMGClick);
 
 async function onGalleryIMGClick(evt) {
-<<<<<<< Updated upstream
+  // <<<<<<< Updated upstream
   console.log(evt.currentTarget.nodeName);
   if (evt.target.nodeName === 'IMG') {
     const target = evt.target.textContent;
@@ -210,42 +210,43 @@ async function onGalleryIMGClick(evt) {
     exercisesAPI.bodypart = target.toLowerCase();
     const data = await exercisesAPI.fetchExercises();
     let diff = data.results.length - data.perPage;
-=======
-  title.textContent = 'Exercises /';
+    // =======
+    title.textContent = 'Exercises /';
 
-  exercisesAPI.page = 1;
-  if (
-    evt.target.nodeName === 'IMG' ||
-    evt.target.nodeName === 'LI' ||
-    evt.target.nodeName === 'BUTTON'
-  ) {
-    let workoutMarkup;
-    let pageMarkup;
-    const target = evt.target.parentNode;
-    let filterName = target.querySelector('.muscles-group');
-    let filterExercise = target.querySelector('.muscles-group-name');
+    exercisesAPI.page = 1;
+    if (
+      evt.target.nodeName === 'IMG' ||
+      evt.target.nodeName === 'LI' ||
+      evt.target.nodeName === 'BUTTON'
+    ) {
+      let workoutMarkup;
+      let pageMarkup;
+      const target = evt.target.parentNode;
+      let filterName = target.querySelector('.muscles-group');
+      let filterExercise = target.querySelector('.muscles-group-name');
 
->>>>>>> Stashed changes
-    if (mediaD.matches) {
-      data.perPage = 9;
-      diff = data.results.length - data.perPage;
-      data.results.splice(-diff);
-    } else if (!mediaD.matches) {
-      data.perPage = 8;
-      diff = data.results.length - data.perPage;
-      data.results.splice(-diff);
+      // >>>>>>> Stashed changes
+      if (mediaD.matches) {
+        data.perPage = 9;
+        diff = data.results.length - data.perPage;
+        data.results.splice(-diff);
+      } else if (!mediaD.matches) {
+        data.perPage = 8;
+        diff = data.results.length - data.perPage;
+        data.results.splice(-diff);
+      }
+      const markup = workoutsTemplate(data.results);
+      gallery.innerHTML = markup;
+    } else if (evt.target.dataset.action === 'start') {
+      try {
+        const data = await search(evt.target.id);
+        console.log(data.bodyPart);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      return;
     }
-    const markup = workoutsTemplate(data.results);
-    gallery.innerHTML = markup;
-  } else if (evt.target.dataset.action === 'start') {
-    try {
-      const data = await search(evt.target.id);
-      console.log(data.bodyPart);
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    return;
   }
 }
 
