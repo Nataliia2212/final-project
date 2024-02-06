@@ -70,6 +70,20 @@ blockquote {
   color: var(--second-text-color);
 }
 
+.background__image{
+  width: 335px;
+  height: 272px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+
+		background-image: url(../../img/quote/mob-girl.webp);
+
+		@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+			background-image: url(../../img/quote/mob-girl@2x.webp);
+		}
+}
+
 @media screen and (max-width: 767px) {
   .quote__title {
     display: flex;
@@ -148,6 +162,17 @@ blockquote {
     margin-top: 25px;
   }
 
+  .background__image{
+    width: 736px;
+    height: 302px;
+    border-radius: 50px;
+  
+      background-image: url(../../img/quote/tablet-girl.webp);
+  
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: url(../../img/quote/tablet-girl@2x.webp);
+      }
+  }
   
 }
 
@@ -177,6 +202,18 @@ blockquote {
   .quote__img {
     width: 704px;
     /* height: 100%; */
+  }
+
+  .background__image{
+    width: 704px;
+    height: 302px;
+    border-radius: 50px;
+  
+      background-image: url(../../img/quote/tablet-girl.webp);
+  
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: url(../../img/quote/tablet-girl@2x.webp);
+      }
   }
 }
 
