@@ -202,6 +202,7 @@ function pagesTemplate(total) {
 gallery.addEventListener('click', onGalleryIMGClick);
 
 async function onGalleryIMGClick(evt) {
+<<<<<<< Updated upstream
   console.log(evt.currentTarget.nodeName);
   if (evt.target.nodeName === 'IMG') {
     const target = evt.target.textContent;
@@ -209,6 +210,22 @@ async function onGalleryIMGClick(evt) {
     exercisesAPI.bodypart = target.toLowerCase();
     const data = await exercisesAPI.fetchExercises();
     let diff = data.results.length - data.perPage;
+=======
+  title.textContent = 'Exercises /';
+
+  exercisesAPI.page = 1;
+  if (
+    evt.target.nodeName === 'IMG' ||
+    evt.target.nodeName === 'LI' ||
+    evt.target.nodeName === 'BUTTON'
+  ) {
+    let workoutMarkup;
+    let pageMarkup;
+    const target = evt.target.parentNode;
+    let filterName = target.querySelector('.muscles-group');
+    let filterExercise = target.querySelector('.muscles-group-name');
+
+>>>>>>> Stashed changes
     if (mediaD.matches) {
       data.perPage = 9;
       diff = data.results.length - data.perPage;
