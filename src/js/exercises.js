@@ -10,6 +10,7 @@ class ExercisesAPI {
     this.muscles = '';
     this.bodypart = '';
     this.equipment = '';
+    this.name = '';
   }
 
   fetchImages() {
