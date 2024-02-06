@@ -204,15 +204,19 @@ function pagesTemplate(total) {
 gallery.addEventListener('click', onGalleryIMGClick);
 
 async function onGalleryIMGClick(evt) {
-  form.classList.remove('is-hidden');
+  // form.classList.remove('is-hidden');
   exercisesAPI.page = 1;
   const liElem = evt.target.closest('.gallery-item');
+  console.log(liElem)
   if (liElem) {
     let workoutMarkup;
     let pageMarkup;
     const hightLightedText =
       liElem.lastElementChild.firstElementChild.textContent;
-    const target = evt.target.parentNode;
+    console.log(hightLightedText);
+
+    const target = evt.target.closest('.gallery-item')
+    // const target = evt.target.parentNode;
     let filterName = target.querySelector('.muscles-group');
     let filterExercise = target.querySelector('.muscles-group-name');
 
@@ -227,6 +231,9 @@ async function onGalleryIMGClick(evt) {
       exercisesAPI.perPage = 8;
     }
 
+    exercisesAPI.bodypart = '';
+    exercisesAPI.muscles = '';
+    exercisesAPI.equipment = '';
     if (
       'bodypart' ===
       filterExercise.innerText.toLowerCase().replace(' ', '').slice(0, -1)
