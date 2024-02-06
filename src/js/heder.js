@@ -1,3 +1,4 @@
+import * as bodyScrollLock from 'body-scroll-lock';
 // const homeLink = document.querySelector('.js-link-home');
 // console.log(homeLink);
 // const favorLink = document.querySelector('.js-link-favor');
@@ -37,7 +38,7 @@
   const refs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
+    modal: document.querySelector('.js-menu-container'),
   };
 
   refs.openModalBtn.addEventListener('click', toggleModal);
