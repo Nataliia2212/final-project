@@ -70,8 +70,6 @@
     display: flex; 
     align-self: flex-start;
     align-items: center; 
-    gap: 8px;
-    margin-left: auto;
     padding: 0;
     background-color: transparent;
     border: none;
@@ -84,6 +82,7 @@
 
 .icon-arrow {
     stroke: var(--main-text-color);
+    flex-shrink: 0;
 }
 
 .wrap {
