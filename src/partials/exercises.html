@@ -1,6 +1,9 @@
 <section>
   <div class="exercises-container container">
-    <h2 class="exercises-title">Exercises</h2>
+    <div class="loader"></div>
+    <div class="title-container">
+      <h2 class="exercises-title">Exercises</h2>
+    </div>
     <div class="search-menu">
       <ul class="filter-list">
         <li class="filter-button-item">
@@ -27,14 +30,16 @@
           placeholder="Search..."
         />
         <button class="svg-button">
-          <svg class="icon-search" width="18" height="18">
+          <svg class="icon-search" width="18" height="18" id="search_icon">
             <use href="../img/sprite.svg#icon-search"></use>
           </svg>
         </button>
       </form>
     </div>
     <ul class="gallery-list"></ul>
+
     <ul class="page-number-list"></ul>
+    <ul class="page-number-list-workout"></ul>
     <div class="negative-result is-hidden">
       <p class="negative-result-text">
         Unfortunately, <span class="no-result">no results</span> were found. You
