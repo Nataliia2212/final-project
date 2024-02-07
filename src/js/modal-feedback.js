@@ -3,16 +3,17 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 const refs = {
   openModalBtn: document.querySelector('.modal-give-rating'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
+  closeModalBtn: document.querySelector('[data-modal-close-btn]'),
   modal: document.querySelector('[data-modal]'),
 };
 
-console.log(refs.openModalBtn);
+console.log(refs.closeModalBtn);
 // console.log(refs.openModalBtn);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
   refs.modal.classList.add('is-hidden');
+console.log("close")
 }
 let rate = null;
 const stars = document.querySelectorAll('.star');
