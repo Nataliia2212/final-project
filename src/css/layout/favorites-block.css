@@ -37,6 +37,13 @@
     justify-content: space-between;
 }
 
+ .text-wrap {
+     width: 247px;
+     margin-top: 80px;
+     margin-right: auto;
+     margin-left: auto;
+ }
+
 .wrap-heading {
     display: flex;
     align-items: center;
@@ -196,9 +203,8 @@ span {
     }
 
     .text-wrap {
-        margin-right: auto;
-        margin-left: auto;
         width: 554px;
+        margin-top: 208px;  
     }
 
     .text-er {
