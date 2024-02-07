@@ -107,3 +107,40 @@ picture{
        
       }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*! ================ Desctop 1440px ================ */
+@media screen and (min-width: 1440px) {
+  .quote__inner--favorites {
+    column-gap: 0;
+  }
+
+  .quote__wrapper--favorites {
+    flex-grow: 2;
+  }
+
+  .img__girl--favorites {
+    flex-grow: 1;
+  }
+
+  .wrapper__text--favorites {
+    flex-grow: 1;
+  }
+
+  .title__text---favorites {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+
+  }
+}
