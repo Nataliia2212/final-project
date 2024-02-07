@@ -1,40 +1,62 @@
 <header class="site-header section">
   <div class="header-container container">
-    <p class="header-title">energy.flow</p>
+    <a class="header-title" href="./index.html">energy.flow</a>
 
-    <div class="header-links">
-      <a class="header-link-home js-link-home" href="./index.html">Home</a>
-      <a class="header-link-favor js-link-favor" href="./favorites.html"
-        >Favorites</a
-      >
-    </div>
+    <nav>
+      <ul class="header-links">
+        <li class="header-item">
+          <a class="header-link-home js-link-home" href="./index.html">Home</a>
+        </li>
+        <li class="header-item">
+          <a class="header-link-favor js-link-favor" href="./favorites.html"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
 
     <div class="header-link-social">
       <ul class="header-ul-social">
         <li class="header-item-social">
           <a
             class="header-link-social"
-            href="https://facebook.com"
+            href="https://www.facebook.com/goITclub/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
           >
             <svg class="header-item-icon" width="44" height="44">
-              <use href="../img/sprite.svg#icon-facebook"></use>
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-facebook"
+              ></use>
             </svg>
           </a>
         </li>
         <li class="header-item-social">
-          <a class="header-link-social" href="" target="_blank"
+          <a
+            class="header-link-social"
+            href="https://www.instagram.com/goitclub/"
+            target="_blank"
             ><svg class="header-item-icon" width="44" height="44">
-              <use href="../img/sprite.svg#icon-instagram"></use>
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-instagram"
+              ></use>
             </svg>
           </a>
         </li>
         <li class="header-item-social">
-          <a class="header-link-social" href="" target="_blank"
-            ><svg class="header-item-icon" width="44" height="44">
-              <use href="../img/sprite.svg#icon-youtube"></use>
+          <a
+            class="header-link-social"
+            href="https://www.youtube.com/c/GoIT"
+            target="_blank"
+          >
+            <svg class="header-item-icon" width="44" height="44">
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-youtube"
+              ></use>
             </svg>
           </a>
         </li>
@@ -51,57 +73,129 @@
         </svg>
       </button>
     </div>
-    <!--modal window-->
   </div>
 </header>
+<!--modal window-->
 <div class="menu-container is-hidden js-menu-container" id="mobile-menu">
   <div class="menu-mobail">
     <button class="menu-toggle js-close-menu" type="button" data-modal-close>
-      <svg class="header-svg-close" width="12" height="12">
+      <svg class="header-svg-close" width="20" height="20">
         <use href="../img/sprite.svg#icon-close"></use>
       </svg>
     </button>
 
-    <p class="menu-header-title">energy.flow</p>
-  </div>
-  <div class="mobail-header-links">
-    <a class="mobail-header-link-home js-link-home-mobail" href="./index.html"
-      >Home</a
-    >
-    <a
-      class="mobail-header-link-favor js-link-favor-mobail"
-      href="./favorites.html"
-      >Favorites</a
-    >
-  </div>
+    <a class="menu-header-title" href="./index.html">energy.flow</a>
 
-  <ul class="mobail-ul-social">
-    <li class="mobail-item-social">
-      <a
-        class="mobail-link-social"
-        href="https://facebook.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Facebook"
-      >
-        <svg class="mobail-item-icon" width="44" height="44">
-          <use href="../img/sprite.svg#icon-facebook"></use>
-        </svg>
-      </a>
-    </li>
-    <li class="mobail-item-social">
-      <a class="mobail-link-social" href="" target="_blank"
-        ><svg class="mobail-item-icon" width="44" height="44">
-          <use href="../img/sprite.svg#icon-instagram"></use>
-        </svg>
-      </a>
-    </li>
-    <li class="mobail-item-social">
-      <a class="mobail-link-social" href="" target="_blank"
-        ><svg class="mobail-item-icon" width="44" height="44">
-          <use href="../img/sprite.svg#icon-youtube"></use>
-        </svg>
-      </a>
-    </li>
-  </ul>
+    <nav class="nav-mobail">
+      <ul class="mobail-header-links">
+        <li class="mobail-item-link">
+          <a
+            class="mobail-header-link-home js-link-home-mobail"
+            href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="mobail-header-link-favor js-link-favor-mobail"
+            href="./favorites.html"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <ul class="mobail-ul-social">
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.facebook.com/goITclub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-facebook"
+            ></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.instagram.com/goitclub/"
+          target="_blank"
+          ><svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-instagram"
+            ></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.youtube.com/c/GoIT"
+          target="_blank"
+          ><svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-youtube"
+            ></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- <div >
+   
+
+    <ul class="mobail-ul-social">
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.facebook.com/goITclub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-facebook"
+            ></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.instagram.com/goitclub/"
+          target="_blank"
+          ><svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-instagram"
+            ></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.youtube.com/c/GoIT"
+          target="_blank"
+          ><svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-youtube"
+            ></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div> -->
 </div>
