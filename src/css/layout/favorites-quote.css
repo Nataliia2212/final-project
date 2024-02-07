@@ -2,7 +2,7 @@ picture{
     display: block;
 }
 
-.quote__inner{
+.quote__inner--favorites{
     display: flex;
     flex-wrap: wrap;
 }
@@ -66,9 +66,10 @@ picture{
   margin-top: 6px;
 }
 
-/*! =============== Tablet_768px =============== */
+/* ================/ Mobile_375px ================ */
+/*! ================ Tablet_768px ================ */
 @media screen and (min-width: 768px) {
-    .quote__inner{
+    .quote__inner--favorites{
         column-gap: 16px;
     }
 
