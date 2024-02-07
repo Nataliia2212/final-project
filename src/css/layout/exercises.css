@@ -99,9 +99,9 @@
 
 /* ==================== /SEARCH ================== */
 
-/* .is-hidden {
+.is-hidden {
   display: none;
-} */
+}
 
 .filter-button {
   display: block;
@@ -137,9 +137,21 @@
   }
   .search-menu {
     margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
   }
   .search {
     width: 246px;
+    margin-top: 0px;
+  }
+  .svg-button {
+    transform: translate(-40px, 9px);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .filter-button {
+    padding: 10px 20px;
   }
 }
 
@@ -235,6 +247,14 @@
 }
 /* ================== Page =================== */
 .page-number-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-number-list-workout {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -406,6 +426,8 @@
   stroke: var(--main-text-color);
   stroke-width: 1.2999999523162842px;
   margin-left: 8px;
+  fill: var(--main-text-color);
+  flex-shrink: 0;
 }
 
 .icon-run {
@@ -416,6 +438,7 @@
   stroke-width: 1.5px;
   stroke: var(--main-text-color);
   fill: none;
+  flex-shrink: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -509,3 +532,40 @@
 .temporary-hidden {
   display: none;
 }
+
+/* @media screen and (min-width: 1440px) {
+  .loader {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .loader:after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    margin: auto;
+    background: #222b32;
+    border-radius: 50%;
+  }
+  .loader:before {
+    content: '';
+    position: absolute;
+    inset: 0px;
+    margin: auto;
+    background: #de3500;
+    animation: crlMugLoader 2s linear infinite alternate;
+  }
+  @keyframes crlMugLoader {
+    0%,
+    10% {
+      transform: translateY(64px);
+    }
+    90%,
+    100% {
+      transform: translateY(0px);
+    }
+  }
+} */
