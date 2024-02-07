@@ -145,17 +145,20 @@ picture{
     background: var(--accent-text-color);
   }
 
-  .quote-favorites--pic{
-    width: 352px;
+  .img__girl--favorites {
+    flex-grow: 1;
   }
 
   .wrapper__text--favorites {
-    width: 352px;
-    
-  
-    padding: 141px 118px 105px 118px;
+    flex-grow: 1;
   }
 
+  .title__text---favorites {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+
+  }
 }
 
 /* ================/ Desktop_1440px ================ */
