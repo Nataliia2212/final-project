@@ -4,6 +4,10 @@ body.modal {
   overflow-x: hidden;
 }
 
+.exercise-modal-container {
+  overflow-y: auto;
+}
+
 /* БЕКДРОП */
 
 .exercise-modal-container {
@@ -40,7 +44,7 @@ body.modal {
   margin: auto;
 
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
 
   background-color: #f6f6f6;
