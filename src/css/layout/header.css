@@ -25,7 +25,7 @@
     color: #1b1b1b;
 }
 
-.header-links {
+/* .header-links {
     border-radius: 60px;
     width: 211px;
     height: 52px;
@@ -36,7 +36,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-}
+} */
 
 @media screen and (min-width: 767px) {
     .header-links {
@@ -44,7 +44,48 @@
     }
 }
 
-.header-link-home {
+.header-item {
+    /* border-radius: 30px;
+   
+    width: 96px;
+    height: 36px;
+    padding: 6px 14px;
+    color: #f6f6f6;
+    border-radius: 30px; */
+
+
+}
+
+.header-links {
+    border-radius: 60px;
+    width: 211px;
+    height: 52px;
+    background: #7e847f;
+    display: flex;
+    margin: 0 auto;
+
+}
+
+.header-link-home,
+.header-link-favor {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 6px 26px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .header-link-favor {
+    border-radius: 30px;
+    width: 95px;
+    margin-left: 10px;
+    /* Додайте це, щоб відокремити посилання */
+/* } */
+
+*/
+/* .header-link-home {
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -58,16 +99,9 @@
     width: 95px;
     color: #f6f6f6;
 
-}
+} */
 
-.link-home-favor {
-    border-radius: 30px;
-    padding: 6px;
-    width: 96px;
-    height: 36px;
-    background: #fff;
-    color: fff;
-}
+
 
 .link-social {
     font-family: "DM Sans", sans-serif;
@@ -143,24 +177,23 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    /* width: 100vw; */
+    width: 100vw;
     height: 100vh;
     /* padding: 80px 35px 40px 40px; */
-    background-color: #7e847f;
+    background-color: #fff;
     z-index: 999;
-    display: flex;
-    flex-direction: column;
-
+    padding: 20px;
     transform: translateX(100%);
+    /*display: flex;
+    flex-direction: column;
+    
+    
     transition: transform 250ms ease-in-out;
-    border-radius: 30px;
+    border-radius: 30px; */
 
 }
 
-
-.header-svg-close {
-    stroke: #f6f6f6;
-}
+/* 
 
 .menu-container.is-open {
     transform: translateX(0);
@@ -198,77 +231,24 @@
     text-transform: capitalize;
 }
 
-
-.menu-mobail {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-}
-
 .menu-toggle {
     background: none;
     border: none;
     cursor: pointer;
 }
 
-.menu-header-title {
-    position: absolute;
-    top: 20px;
-    font-family: "DM Sans", sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.125;
-    letter-spacing: -0.02em;
-    color: #f6f6f6;
-
-    margin: 0;
-
-}
-
-
 /*======*/
 
-.mobail-header-links {
-    height: 76px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-}
 
-.mobail-header-link-home {
-    border-radius: 30px;
-    padding: 6px 26px;
-    width: 96px;
-    height: 36px;
-    font-family: "DM Sans", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #1b1b1b;
-}
-
-
-.mobail-header-link-favor {
-    font-family: "DM Sans", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #f6f6f6;
-}
 
 .mobail-ul-social {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 41px;
-    padding: 0px 94px 40px 94px;
+    /* height: 41px;
+    padding: 0px 94px 40px 94px; */
     gap: 12px;
+    /* margin-top: auto; */
 }
 
 .mobail-item-social {
@@ -301,12 +281,13 @@
     width: 211px;
     height: 52px;
     background: #7e847f;
-    display: block;
+
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    padding: 8px 16px;
 }
 
 @media screen and (max-width: 767px) {
@@ -323,21 +304,6 @@
     color: #f6f6f6;
 }
 
-.header-link-favor {
-    border-radius: 30px;
-    padding: 6px 14px;
-    width: 95px;
-    color: #f6f6f6;
-}
-
-.link-home-favor {
-    border-radius: 30px;
-    padding: 6px;
-    width: 96px;
-    height: 36px;
-    background: #fff;
-    color: black;
-}
 
 .link-social {
     font-family: "DM Sans", sans-serif;
@@ -436,11 +402,11 @@
 
 .menu-container .menu-toggle {
     position: absolute;
-    top: 20px;
-    right: 24px;
+    top: 13px;
+    right: 13px;
 
-    width: 24px;
-    height: 24px;
+    /* width: 24px;
+    height: 24px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -468,10 +434,17 @@
 
 
 .menu-mobail {
+    position: relative;
+    padding: 12px 14px 36px 12px;
+    background-color: #7e847f;
+    border-radius: 30px;
+    height: 100%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+
 }
 
 .menu-toggle {
@@ -481,7 +454,10 @@
 }
 
 .menu-header-title {
-    position: absolute;
+    align-self: flex-start;
+    color: #f6f6f6;
+
+    /* position: absolute;
     top: 20px;
     font-family: "DM Sans", sans-serif;
     font-weight: 700;
@@ -489,8 +465,8 @@
     line-height: 1.125;
     letter-spacing: -0.02em;
     color: #f6f6f6;
-
-    margin: 0;
+    padding: 0 0 0 14px;
+    margin: 0; */
 
 }
 
@@ -532,27 +508,30 @@
 /*======*/
 
 .mobail-header-links {
-    height: 76px;
-    margin: 0;
-    padding: 0;
     display: flex;
+    flex-direction: column;
+
+    /* margin: 0;
+    padding: 0;
+    
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh;
+    height: 100vh; */
 }
 
 .mobail-header-link-home {
     border-radius: 30px;
-    padding: 6px 26px;
+    padding: 16px;
     width: 96px;
     height: 36px;
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
-    color: #1b1b1b;
+    color: #f6f6f6;
+
 }
 
 
@@ -562,14 +541,6 @@
     font-size: 16px;
     line-height: 1.5;
     color: #f6f6f6;
-}
-
-.mobail-ul-social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 41px;
-    padding: 0px 94px 40px 94px;
 }
 
 .mobail-item-social {
@@ -600,3 +571,32 @@
 .is-hidden {
     display: none;
 }
+
+
+
+.svg-icon-main {
+    fill: #7e847f;
+}
+
+.svg-icon-mobail {
+    fill: #fff;
+}
+
+.mobail-item-link {}
+
+.header-link-favor {
+    border-radius: 30px;
+    padding: 6px 14px;
+    width: 95px;
+    color: #f6f6f6;
+}
+
+.link-home-favor {
+    border-radius: 30px;
+    padding: 9px;
+    width: 96px;
+    background: #fff;
+    color: black;
+}
+
+.nav-mobail {}
