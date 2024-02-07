@@ -126,21 +126,33 @@ picture{
   }
 
   .quote__wrapper--favorites {
-    flex-grow: 2;
+    width: 704px;
   }
 
   .img__girl--favorites {
-    flex-grow: 1;
+    width: 352px;
+    height: 100%;
   }
 
   .wrapper__text--favorites {
-    flex-grow: 1;
+    
+    padding: 140px 110px;
   }
 
-  .title__text---favorites {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1.33;
+    .quote-favorites--pic {
+      width: 352px;
+    }
 
-  }
+.quote__wrapper--favorites {
+
+  padding: 112px 64px 64px 114px;
+  
+}
+
+.title__text---favorites::before {
+  top: 106px;
+  left: 110px;
+  width: 20px;
+  height: 20px;
+}
 }
