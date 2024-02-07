@@ -1,1 +1,70 @@
+
 <p>modal</p>
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button
+      class="modal-btn"
+      type="button"
+      aria-label="close modal button"
+      data-modal-close-btn=""
+      >
+      <svg class="modal-icon" width="10" height="10">
+        <use href="../img/sprite.svg#icon-star"></use>
+      </svg>
+    </button>
+    <form class="form-rating" >
+      <p class="rating-text">Rating</p>
+     
+      <div role="group" class="rating">
+        <span class="rating-value">0.0</span>
+        <input type="radio" id="star1" name="rating" value="1"/><label
+          for="star5"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star2" name="rating" value="2" /><label
+          for="star4"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star3" name="rating" value="3" /><label
+          for="star3"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star4" name="rating" value="4" /><label
+          for="star2"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star5" name="rating" value="5" /><label
+          for="star1"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+      </div>
+      <input
+      class="input-email"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+      />
+
+      <div class="modal-input">
+        <textarea
+          id="user-comment"
+          name="user-comment"
+          class="modal-input-comment"
+          placeholder="Your comment"
+        ></textarea>
+      </div>
+      <button type="submit" class="modal-send">Send</button>
+    </form>
+  </div>
+</div>
