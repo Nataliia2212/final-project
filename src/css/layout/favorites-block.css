@@ -231,3 +231,11 @@ span {
         max-width: 318px;
     }
 }
+
+.favorites-list.is-hidden {
+    display: none;
+}
+
+/* .text-wrap.is-hidden {
+    display: none;
+} */
