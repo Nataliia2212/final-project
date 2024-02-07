@@ -38,9 +38,7 @@ stars.forEach(star => {
   });
 });
 
-document
-  .querySelector('.form-rating')
-  .addEventListener('submit', function (event) {
+document.querySelector('.form-rating').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const emailValue = formElemEmail.value;
@@ -84,13 +82,14 @@ async function fetchUpdateRating(id, dataRating) {
 
   return axios.patch(url, dataRating);
 }
-refs.openModalBtn.addEventListener('click', () => {
-  refs.modal.classList.remove('is-hidden');
-  refs.modal.firstElementChild.setAttribute('data-id', id);
-});
+refs.openModalBtn.addEventListener('click', (e) => {
+const id = e.target.dataset.id;
+showModal(id);
 
-// function showModal(id){
-//     refs.modal.classList.remove('visually-hidden');
-//     refs.modal.firstElementChild.setAttribute('data-id', id)
-// }
+})
+
+function showModal(id){
+    refs.modal.classList.remove('visually-hidden');
+    refs.modal.firstElementChild.setAttribute('data-id', id)
+}
 //  showModal(id);
