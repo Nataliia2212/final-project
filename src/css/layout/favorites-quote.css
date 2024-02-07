@@ -9,7 +9,6 @@ picture{
 
 .quote__wrapper--favorites {
   height: 272px;
-  flex-grow: 2;
 
   position: relative;
   padding: 42px 20px 40px 66px;
@@ -20,14 +19,16 @@ picture{
 .img__girl--favorites {
     display: block;
   height: 272px;
-  flex-grow: 1;
   border-radius: 30px;
+}
+
+.quote-favorites--pic{
+    border-radius: 30px;
 }
 
 .wrapper__text--favorites {
   height: 272px;
   position: relative;
-  flex-grow: 1;
 
   padding: 131px 101px 97px 102px;
   border-radius: 30px;
@@ -71,7 +72,6 @@ picture{
 @media screen and (min-width: 768px) {
     .quote__inner--favorites{
         row-gap: 16px;
-        /* flex-wrap: wrap; */
     }
 
     .quote__wrapper--favorites {
@@ -86,10 +86,8 @@ picture{
         background: var(--accent-text-color);
       }
 
-      .img__girl--favorites {
+      .quote-favorites--pic{
         width: 368px;
-        height: 302px;
-        
         border-radius: 50px;
       }
 
@@ -126,4 +124,35 @@ picture{
         background-repeat: no-repeat;
         background-position: center;
       }
+}
+
+/* ================/ Tablet_768px ================ */
+/*! ================ Desktop_1440px ================ */
+@media screen and (min-width: 1440px) {
+.quote__inner--favorites{
+    row-gap: 0;
+}
+
+.quote__wrapper--favorites {
+    width: 704px;
+    height: 302px;
+    
+    padding: 64px 64px 64px 114px;
+    border-radius: 50px;
+  
+    position: relative;
+    border-radius: 50px;
+    background: var(--accent-text-color);
+  }
+
+  .quote-favorites--pic{
+    width: 352px;
+  }
+
+  .wrapper__text--favorites {
+    width: 352px;
+    
+  
+    padding: 141px 118px 105px 118px;
+  }
 }
