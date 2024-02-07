@@ -135,9 +135,13 @@ picture{
   }
 
   .wrapper__text--favorites {
-    width: 352px;
+    
     padding: 140px 110px;
   }
+
+    .quote-favorites--pic {
+      width: 352px;
+    }
 
 .quote__wrapper--favorites {
 
