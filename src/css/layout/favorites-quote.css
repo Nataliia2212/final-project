@@ -1,0 +1,160 @@
+picture{
+    display: block;
+}
+
+.quote__inner--favorites{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.quote__wrapper--favorites {
+  height: 272px;
+
+  position: relative;
+  padding: 42px 20px 40px 66px;
+  border-radius: 30px;
+  background: var(--accent-text-color);
+}
+
+.img__girl--favorites {
+    display: block;
+  height: 272px;
+  border-radius: 30px;
+}
+
+.quote-favorites--pic{
+    border-radius: 30px;
+}
+
+.wrapper__text--favorites {
+  height: 272px;
+  position: relative;
+
+  padding: 131px 101px 97px 102px;
+  border-radius: 30px;
+  background: #fff;
+}
+
+.title__text---favorites {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  
+}
+
+.title__text---favorites::before {
+  content: ' ';
+  position: absolute;
+  display: block;
+  top: 96px;
+  left: 102px;
+  width: 20px;
+  height: 20px;
+  padding: 4px 2px;
+  fill: var(--main-text-color);
+  background-color: rgba(246, 246, 246, 0.1);
+  background-image: url('../../img/quote-favorites/gym-fav.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main__text---favorites {
+  color: var(--main-text-color_a-six);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  margin-top: 6px;
+}
+
+/* ================/ Mobile_375px ================ */
+/*! ================ Tablet_768px ================ */
+@media screen and (min-width: 768px) {
+    .quote__inner--favorites{
+        row-gap: 16px;
+    }
+
+    .quote__wrapper--favorites {
+        width: 736px;
+        height: 302px;
+        border-radius: 50px;
+        padding: 64px 80px 64px 130px;
+        flex-grow: 2;
+      
+        position: relative;
+        border-radius: 50px;
+        background: var(--accent-text-color);
+      }
+
+      .quote-favorites--pic{
+        width: 368px;
+        border-radius: 50px;
+      }
+
+      .wrapper__text--favorites {
+        width: 368px;
+        height: 302px;
+        position: relative;
+        
+      
+        padding: 141px 118px 105px 118px;
+        border-radius: 50px;
+        background: #fff;
+      }
+
+      .title__text---favorites {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.33;
+       
+      }
+
+      .title__text---favorites::before {
+        content: ' ';
+        position: absolute;
+        display: block;
+        top: 106px;
+        left: 118px;
+        width: 20px;
+        height: 20px;
+        padding: 4px 2px;
+        fill: var(--main-text-color);
+        background-color: rgba(246, 246, 246, 0.1);
+        background-image: url('../../img/quote-favorites/gym-fav.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+}
+
+/* ================/ Tablet_768px ================ */
+/*! ================ Desktop_1440px ================ */
+@media screen and (min-width: 1440px) {
+    .quote__inner--favorites{
+        row-gap: 0;
+    }
+    
+    .quote__wrapper--favorites {
+        width: 704px;
+        height: 302px;
+        
+        padding: 64px 64px 64px 114px;
+        border-radius: 50px;
+      
+        position: relative;
+        border-radius: 50px;
+        background: var(--accent-text-color);
+      }
+    
+      .quote-favorites--pic{
+        width: 352px;
+      }
+    
+      .wrapper__text--favorites {
+        width: 352px;
+        
+      
+        padding: 141px 118px 105px 118px;
+      }
+    }
+
+/* ================/ Desktop_1440px ================ */
