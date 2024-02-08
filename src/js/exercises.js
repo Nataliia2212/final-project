@@ -278,6 +278,26 @@ async function onGalleryIMGClick(evt) {
 
     pages.innerHTML = '';
 
+    if (!mediaT.matches) {
+      if (data.totalPages > 5) {
+        workoutPages.style.maxWidth = '45%';
+        workoutPages.style.margin = '0 auto';
+        workoutPages.style.justifyContent = 'flex-start';
+        workoutPages.style.overflow = 'hidden';
+      }
+    } else if (mediaT.matches) {
+      if (data.totalPages > 21) {
+        workoutPages.style.maxWidth = '100%';
+        workoutPages.style.margin = '0 auto';
+        workoutPages.style.justifyContent = 'flex-start';
+        workoutPages.style.overflow = 'hidden';
+      } else {
+        workoutPages.style.justifyContent = 'center';
+      }
+    } else if (mediaD.matches) {
+      workoutPages.style.margin = '0 auto';
+    }
+
     pageMarkup = pagesTemplate(data.totalPages);
     workoutPages.innerHTML = pageMarkup;
     const firstPage = workoutPages.querySelector('li:first-child');
@@ -348,19 +368,7 @@ function workoutsTemplate(workouts) {
   return workouts.map(workoutTemplate).join('');
 }
 
-// form.addEventListener('submit', onSearch);
-
-// async function onSearch(e) {
-//   e.preventDefault();
-//   let searchInput = input.value;
-//   console.log(searchInput);
-//   const res = await exercisesAPI.fetchExercises();
-//   const value = res.results.map(el => el.name).join('');
-//   if (value.includes(searchInput)) {
-//     const workoutMarkup = workoutsTemplate(res.results);
-//     gallery.innerHTML = workoutMarkup;
-//   } else {
-//     gallery.innerHTML = '';
-//     negativeRes.classList.remove('is-hidden');
-//   }
-// }
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  form.reset();
+});
