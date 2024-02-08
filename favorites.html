@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/final-project/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla App Template</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    
+    <script type="module" crossorigin src="/final-project/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/final-project/assets/vendor-4357aed0.js">
+    <link rel="modulepreload" crossorigin href="/final-project/assets/modal-feedback-44a77efd.js">
+    <link rel="stylesheet" href="/final-project/assets/vendor-e5212ee8.css">
+    <link rel="stylesheet" href="/final-project/assets/modal-feedback-3d52382b.css">
+  </head>
+  <body class="favorites-page">
+    <header class="site-header section">
+  <div class="header-container container">
+    <a class="header-title" href="./index.html">energy.flow</a>
+    <nav>
+      <ul class="header-links">
+        <li class="header-item">
+          <a class="header-link-home js-link-home" href="./index.html">Home</a>
+        </li>
+        <li class="header-item">
+          <a class="header-link-favor js-link-favor" href="./favorites.html"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-link-social">
+      <ul class="header-ul-social">
+        <li class="header-item-social">
+          <a
+            class="header-link-social"
+            href="https://www.facebook.com/goITclub/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <svg class="header-item-icon" width="44" height="44">
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-facebook"
+              ></use>
+            </svg>
+          </a>
+        </li>
+        <li class="header-item-social">
+          <a
+            class="header-link-social"
+            href="https://www.instagram.com/goitclub/"
+            target="_blank"
+          >
+            <svg class="header-item-icon" width="44" height="44">
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-instagram"
+              ></use>
+            </svg>
+          </a>
+        </li>
+        <li class="header-item-social">
+          <a
+            class="header-link-social"
+            href="https://www.youtube.com/c/GoIT"
+            target="_blank"
+          >
+            <svg class="header-item-icon" width="44" height="44">
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-youtube"
+              ></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="mobile-menu" class="burger">
+      <button
+        class="header-open menu-toggle js-open-menu"
+        type="button"
+        data-modal-open
+      >
+        <svg class="header-svg" width="32" height="16">
+          <use href="../img/sprite.svg#icon-burger-btn"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<!--modal window-->
+<div class="menu-container is-hidden js-menu-container" id="mobile-menu">
+  <div class="menu-mobail">
+    <button class="menu-toggle js-close-menu" type="button" data-modal-close>
+      <svg class="header-svg-close" width="12" height="12">
+        <use href="../img/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <a class="menu-header-title" href="./index.html">energy.flow</a>
+
+    <nav class="nav-mobail">
+      <ul class="mobail-header-links">
+        <li class="mobail-item-link">
+          <a
+            class="mobail-header-link-home js-link-home-mobail"
+            href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="mobail-header-link-favor js-link-favor-mobail"
+            href="./favorites.html"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <ul class="mobail-ul-social">
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.facebook.com/goITclub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-facebook"
+            ></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.instagram.com/goitclub/"
+          target="_blank"
+          ><svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-instagram"
+            ></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.youtube.com/c/GoIT"
+          target="_blank"
+          ><svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-youtube"
+            ></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <main>
+      <section class="favorites-quote">
+  <div class="container quote__inner--favorites">
+    <div class="quote__wrapper--favorites">
+      <h2 class="quote__title">Quote of the day</h2>
+
+      <blockquote>
+        <p class="quote__text js__quote-text"></p>
+        <p class="quote__text--author js__quote-author"></p>
+      </blockquote>
+    </div>
+
+    <picture class="img__girl--favorites">
+      <source
+        type="image/webp"
+        media="(min-width:1440px)"
+        srcset="
+          ../../img/quote-favorites/fav__quote--desk@2x.webp 2x,
+          ../../img/quote-favorites/fav__quote--desk.webp    1x
+        "
+      />
+      <source
+        type="image/webp"
+        media="(min-width:768px)"
+        srcset="
+          ../../img/quote-favorites/fav__quote--tab@2x.webp 2x,
+          ../../img/quote-favorites/fav__quote--tab.webp    1x
+        "
+      />
+      <source
+        type="image/webp"
+        media="(min-width:375px)"
+        srcset="
+          ../img/quote-favorites/fav__quote--mob@2x.webp 2x,
+          ../img/quote-favorites/fav__quote--mob.webp    1x
+        "
+      />
+      <img
+        class="quote-favorites--pic"
+        src="../img/quote-favorites/fav__quote--mob.webp"
+        alt="sportgirl image"
+        width="335px"
+        height="269px"
+      />
+    </picture>
+
+    <div class="wrapper__text--favorites">
+      <h3 class="title__text---favorites">110 min</h3>
+      <p class="main__text---favorites">Daily norm of sports</p>
+    </div>
+  </div>
+</section>
+
+
+      <!-- ===== Favorites-block ===== -->
+
+<section class="favorites-block">
+  <div class="container">
+    <div class="favorites-block-container">
+      <h2 class="section-title">Favorites</h2>
+      <ul class="favorites-list"></ul>
+      <div class="text-wrap"></div>
+    </div>
+  </div>
+</section>
+
+    </main>
+    <!-- дів для фону -->
+<!-- is-hidden -->
+<div class="exercise-modal-container" id="exerciseModal">
+  <!-- дів для модального вікна -->
+  <div class="modal-exercise-wrap">
+    <!-- кнопка закриття вікна -->
+    <button
+      type="button"
+      class="close-exercise-btn"
+      id="closeButtonExercise"
+      aria-label="Close button"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.8332 8.16666L8.1665 19.8333M8.1665 8.16666L19.8332 19.8333"
+          stroke="#1B1B1B"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <!-- рендер вправи -->
+    <div class="card-markup-modal"></div>
+
+    <!-- кнопки -->
+    <div class="modal-button">
+      <button type="button" class="modal-add-favorite">Add to favorites</button>
+      <button type="button" class="modal-give-rating">Give a rating</button>
+    </div>
+  </div>
+</div>
+
+    
+<p>modal</p>
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button
+      class="modal-btn"
+      type="button"
+      aria-label="close modal button"
+      data-modal-close-btn=""
+      >
+      <svg class="modal-icon" width="10" height="10">
+        <use href="../img/sprite.svg#icon-star"></use>
+      </svg>
+    </button>
+    <form class="form-rating" >
+      <p class="rating-text">Rating</p>
+     
+      <div role="group" class="rating">
+        <span class="rating-value">0.0</span>
+        <input type="radio" id="star1" name="rating" value="1"/><label
+          for="star5"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star2" name="rating" value="2" /><label
+          for="star4"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star3" name="rating" value="3" /><label
+          for="star3"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star4" name="rating" value="4" /><label
+          for="star2"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star5" name="rating" value="5" /><label
+          for="star1"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+      </div>
+      <input
+      class="input-email"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+      />
+
+      <div class="modal-input">
+        <textarea
+          id="user-comment"
+          name="user-comment"
+          class="modal-input-comment"
+          placeholder="Your comment"
+        ></textarea>
+      </div>
+      <button type="submit" class="modal-send">Send</button>
+    </form>
+  </div>
+</div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/final-project/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energy flow</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    
+    <script type="module" crossorigin src="/final-project/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/final-project/assets/vendor-4357aed0.js">
+    <link rel="modulepreload" crossorigin href="/final-project/assets/modal-feedback-44a77efd.js">
+    <link rel="stylesheet" href="/final-project/assets/modal-feedback-3d52382b.css">
+    <link rel="stylesheet" href="/final-project/assets/vendor-e5212ee8.css">
+  </head>
+  <body class="home-page">
+    <!-- <a href="./favorites.html" style="padding: 30px; display: block"
+      >Favorites це поки для навігації</a
+    > -->
+    <header class="site-header section">
+  <div class="header-container container">
+    <a class="header-title" href="./index.html">energy.flow</a>
+    <nav>
+      <ul class="header-links">
+        <li class="header-item">
+          <a class="header-link-home js-link-home" href="./index.html">Home</a>
+        </li>
+        <li class="header-item">
+          <a class="header-link-favor js-link-favor" href="./favorites.html"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-link-social">
+      <ul class="header-ul-social">
+        <li class="header-item-social">
+          <a
+            class="header-link-social"
+            href="https://www.facebook.com/goITclub/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <svg class="header-item-icon" width="44" height="44">
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-facebook"
+              ></use>
+            </svg>
+          </a>
+        </li>
+        <li class="header-item-social">
+          <a
+            class="header-link-social"
+            href="https://www.instagram.com/goitclub/"
+            target="_blank"
+          >
+            <svg class="header-item-icon" width="44" height="44">
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-instagram"
+              ></use>
+            </svg>
+          </a>
+        </li>
+        <li class="header-item-social">
+          <a
+            class="header-link-social"
+            href="https://www.youtube.com/c/GoIT"
+            target="_blank"
+          >
+            <svg class="header-item-icon" width="44" height="44">
+              <use
+                class="svg-icon-main"
+                href="../img/sprite.svg#icon-youtube"
+              ></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="mobile-menu" class="burger">
+      <button
+        class="header-open menu-toggle js-open-menu"
+        type="button"
+        data-modal-open
+      >
+        <svg class="header-svg" width="32" height="16">
+          <use href="../img/sprite.svg#icon-burger-btn"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<!--modal window-->
+<div class="menu-container is-hidden js-menu-container" id="mobile-menu">
+  <div class="menu-mobail">
+    <button class="menu-toggle js-close-menu" type="button" data-modal-close>
+      <svg class="header-svg-close" width="12" height="12">
+        <use href="../img/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <a class="menu-header-title" href="./index.html">energy.flow</a>
+
+    <nav class="nav-mobail">
+      <ul class="mobail-header-links">
+        <li class="mobail-item-link">
+          <a
+            class="mobail-header-link-home js-link-home-mobail"
+            href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="mobail-header-link-favor js-link-favor-mobail"
+            href="./favorites.html"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <ul class="mobail-ul-social">
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.facebook.com/goITclub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-facebook"
+            ></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.instagram.com/goitclub/"
+          target="_blank"
+          ><svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-instagram"
+            ></use>
+          </svg>
+        </a>
+      </li>
+      <li class="mobail-item-social">
+        <a
+          class="mobail-link-social"
+          href="https://www.youtube.com/c/GoIT"
+          target="_blank"
+          ><svg class="mobail-item-icon" width="44" height="44">
+            <use
+              class="svg-icon-mobail"
+              href="../img/sprite.svg#icon-youtube"
+            ></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <main>
+      <!-- ********* HERO ********** -->
+
+<section class="hero-all">
+  <div class="container hero">
+    <div class="hero-img">
+      <div class="hero-teg">
+        <p class="hero-teg-link">#Sport</p>
+        <p class="hero-teg-link">#Healthy</p>
+        <p class="hero-teg-link">#Workout</p>
+        <p class="hero-teg-link">#Diet</p>
+      </div>
+    </div>
+    <div class="hero-info">
+      <h1 class="hero-title">
+        Get
+        <span class="hero-title-body">Body</span>
+        in shape, Stay healthy
+      </h1>
+      <p class="hero-text">
+        Transform your physique and embrace a healthier lifestyle with our
+        comprehensive fitness and nutrition support.
+      </p>
+    </div>
+  </div>
+</section>
+
+      <section class="quote">
+  <div class="container quote__inner">
+    <div class="quote__wrapper">
+      <h2 class="quote__title">Quote of the day</h2>
+
+      <blockquote>
+        <p class="quote__text js__quote-text"></p>
+        <p class="quote__text--author js__quote-author"></p>
+      </blockquote>
+    </div>
+
+    <div class="background__image"></div>
+
+  </div>
+</section>
+
+      <section>
+  <div class="exercises-container container">
+    <div class="loader"></div>
+    <div class="title-container">
+      <h2 class="exercises-title">Exercises</h2>
+    </div>
+    <div class="search-menu">
+      <ul class="filter-list">
+        <li class="filter-button-item">
+          <button type="button" class="filter-button active-btn" name="muscles">
+            Muscles
+          </button>
+        </li>
+        <li>
+          <button type="button" class="filter-button" name="body-parts">
+            Body parts
+          </button>
+        </li>
+        <li class="filter-button-item">
+          <button type="button" class="filter-button" name="equipment">
+            Equipment
+          </button>
+        </li>
+      </ul>
+      <form class="form is-hidden">
+        <input
+          type="search"
+          name="search-field"
+          class="search"
+          placeholder="Search..."
+        />
+        <button class="svg-button">
+          <svg class="icon-search" width="18" height="18" id="search_icon">
+            <use href="../img/sprite.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <ul class="gallery-list"></ul>
+
+    <ul class="page-number-list"></ul>
+    <ul class="page-number-list-workout"></ul>
+    <div class="negative-result is-hidden">
+      <p class="negative-result-text">
+        Unfortunately, <span class="no-result">no results</span> were found. You
+        may want to consider other search options to find the exercise you are
+        looking for. Our range is wide and you have the opportunity to find more
+        options that suit your needs.
+      </p>
+    </div>
+  </div>
+</section>
+
+      <section class="sport-info" id="sport-info">
+  <div class="container">
+    <div class="wrapper-flex">
+      <h2 class="sport-info-title visually-hidden">Sport-info</h2>
+      <picture>
+        <source
+          type="image/webp"
+          media="(min-width:1280px)"
+          srcset="/final-project/assets/desc@2x-ef9c7233.webp 2x, /final-project/assets/desc@1x-a7ce04d3.webp 1x"
+        />
+        <source
+          type="image/jpg"
+          media="(min-width:1280px)"
+          srcset="/final-project/assets/desc@2x-e1e68225.jpg 2x, /final-project/assets/desc@1x-7fc83f12.jpg 1x"
+        />
+        <source
+          type="image/webp"
+          media="(min-width:768px)"
+          srcset="/final-project/assets/table@2x-ecd1f321.webp 2x, /final-project/assets/table@1x-a2c747ca.webp 1x"
+        />
+        <source
+          type="image/jpg"
+          media="(min-width:768px)"
+          srcset="/final-project/assets/table@2x-52940ed2.jpg 2x, /final-project/assets/table@1x-5884e76f.jpg 1x"
+        />
+        <source
+          type="image/webp"
+          media="(min-width:375px)"
+          srcset="/final-project/assets/mob@2x-5d043485.webp 2x, data:image/webp;base64,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 1x"
+        />
+        <source
+          type="image/jpg"
+          media="(min-width:375px)"
+          srcset="/final-project/assets/mob@2x-ccc5999c.jpg 2x, /final-project/assets/mob@1x-90e6e7a2.jpg 1x"
+        />
+        <img
+          class="sport-info-pic"
+          src="../img/sport-info/desc@1x.jpg"
+          alt="sportgirl image"
+          width="335px"
+          height="269px"
+        />
+      </picture>
+
+      <div class="wrapper-text">
+        <div class="icon-background">
+          <svg class="h-icon" width="12" height="16">
+            <use href="../img/sprite.svg#icon-heart"></use>
+          </svg>
+        </div>
+        <h3 class="title-text-block3">110 min</h3>
+        <p class="main-text-style one">Daily norm of sports</p>
+        <p class="main-text-style two">
+          The World Health Organization recommends at least 150 minutes of
+          moderate-intensity aerobic physical activity throughout the week for
+          adults aged 18-64. However, what happens if we adjust that number to
+          110 minutes every day?
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+    <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-information-container">
+      <div class="logo-links-container">
+        <div class="logo-container">
+          <a class="logo" href="../index.html" target="_self">energy.flow</a>
+        </div>
+        <ul class="social-links-container">
+          <li>
+            <a class="social-links" href="https://www.facebook.com/goITclub/" target="_blank">
+              <svg class="footer-icon">
+                <use href="../img/sprite.svg#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-links" href="https://www.instagram.com/goitclub/" target="_blank">
+              <svg class="footer-icon">
+                <use href="../img/sprite.svg#icon-instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-links" href="https://www.youtube.com/c/GoIT" target="_blank">
+              <svg class="footer-icon">
+                <use href="../img/sprite.svg#icon-youtube"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="motto-form-container">
+        <p class="motto">Transforming your <span class="motto-word">body</span> shape with us</p>
+        <div class="form-container">
+          <p class="form-sub">Subscribe and learn about new exercises!</p>
+          <form class="form-footer" id="newsletter-form" method="post">
+            <label for="email">
+              <input class="form-footer-input" type="email" id="email" name="email" placeholder="E-mail">
+            </label>
+            <button id="sendButton" class="btn-footer" type="submit">Send</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-privacy-container">
+      <p class="footer-privacy-paragraph">Energy Flow. All rights reserved.</p>
+      <p class="footer-privacy-policy">Privacy Policy / Terms of Service</p>
+    </div>
+  </div>
+</footer>
+    <!-- дів для фону -->
+<!-- is-hidden -->
+<div class="exercise-modal-container" id="exerciseModal">
+  <!-- дів для модального вікна -->
+  <div class="modal-exercise-wrap">
+    <!-- кнопка закриття вікна -->
+    <button
+      type="button"
+      class="close-exercise-btn"
+      id="closeButtonExercise"
+      aria-label="Close button"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.8332 8.16666L8.1665 19.8333M8.1665 8.16666L19.8332 19.8333"
+          stroke="#1B1B1B"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <!-- рендер вправи -->
+    <div class="card-markup-modal"></div>
+
+    <!-- кнопки -->
+    <div class="modal-button">
+      <button type="button" class="modal-add-favorite">Add to favorites</button>
+      <button type="button" class="modal-give-rating">Give a rating</button>
+    </div>
+  </div>
+</div>
+
+    
+<p>modal</p>
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button
+      class="modal-btn"
+      type="button"
+      aria-label="close modal button"
+      data-modal-close-btn=""
+      >
+      <svg class="modal-icon" width="10" height="10">
+        <use href="../img/sprite.svg#icon-star"></use>
+      </svg>
+    </button>
+    <form class="form-rating" >
+      <p class="rating-text">Rating</p>
+     
+      <div role="group" class="rating">
+        <span class="rating-value">0.0</span>
+        <input type="radio" id="star1" name="rating" value="1"/><label
+          for="star5"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star2" name="rating" value="2" /><label
+          for="star4"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star3" name="rating" value="3" /><label
+          for="star3"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star4" name="rating" value="4" /><label
+          for="star2"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+        <input type="radio" id="star5" name="rating" value="5" /><label
+          for="star1"
+          class="star"
+        ><svg class="icon" width="20" height="20">
+          <use href="../img/sprite.svg#icon-star"></use>
+        </svg></label>
+      </div>
+      <input
+      class="input-email"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+      />
+
+      <div class="modal-input">
+        <textarea
+          id="user-comment"
+          name="user-comment"
+          class="modal-input-comment"
+          placeholder="Your comment"
+        ></textarea>
+      </div>
+      <button type="submit" class="modal-send">Send</button>
+    </form>
+  </div>
+</div>
+
+    
+  </body>
+</html>
