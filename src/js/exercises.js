@@ -57,9 +57,6 @@ const titleCont = document.querySelector('.title-container');
 const loader = document.querySelector('.loader');
 
 const form = document.querySelector('.form');
-// const input = document.querySelector('.search');
-// const submitBtn = document.querySelector('.svg-button');
-// const negativeRes = document.querySelector('.negative-result');
 
 async function defaultSettings() {
   exercisesAPI.filter = 'Muscles';

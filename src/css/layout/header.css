@@ -92,15 +92,11 @@
 }
 
 @media screen and (max-width: 767px) {
-
-
     .header-links {
         display: none;
     }
 
 }
-
-.header-link-social {}
 
 @media screen and (max-width: 767px) {
     .header-link-social {
@@ -336,8 +332,6 @@
     display: flex;
 }
 
-.socials-icon {}
-
 @media only screen and (max-width: 427.98px) {
     .mobile-socials {
         justify-content: space-between;
@@ -349,8 +343,6 @@
         gap: 56px;
     }
 }
-
-/*======*/
 
 .mobail-header-links {
     display: flex;
@@ -385,10 +377,7 @@
     padding: 8px;
     width: 41px;
     height: 41px;
-
 }
-
-.mobail-link-social {}
 
 .mobail-item-icon {
     width: 25px;
