@@ -67,8 +67,6 @@ picture{
   margin-top: 6px;
 }
 
-/* ================/ Mobile_375px ================ */
-/*! ================ Tablet_768px ================ */
 @media screen and (min-width: 768px) {
     .quote__inner--favorites{
         row-gap: 16px;
@@ -80,7 +78,6 @@ picture{
         border-radius: 50px;
         padding: 64px 80px 64px 130px;
         flex-grow: 2;
-      
         position: relative;
         border-radius: 50px;
         background: var(--accent-text-color);
@@ -94,9 +91,7 @@ picture{
       .wrapper__text--favorites {
         width: 368px;
         height: 302px;
-        position: relative;
-        
-      
+        position: relative; 
         padding: 141px 118px 105px 118px;
         border-radius: 50px;
         background: #fff;
@@ -126,8 +121,6 @@ picture{
       }
 }
 
-/* ================/ Tablet_768px ================ */
-/*! ================ Desktop_1440px ================ */
 @media screen and (min-width: 1440px) {
     .quote__inner--favorites{
         row-gap: 0;
@@ -136,10 +129,8 @@ picture{
     .quote__wrapper--favorites {
         width: 704px;
         height: 302px;
-        
         padding: 64px 64px 64px 114px;
         border-radius: 50px;
-      
         position: relative;
         border-radius: 50px;
         background: var(--accent-text-color);
@@ -151,10 +142,6 @@ picture{
     
       .wrapper__text--favorites {
         width: 352px;
-        
-      
         padding: 141px 118px 105px 118px;
       }
     }
-
-/* ================/ Desktop_1440px ================ */

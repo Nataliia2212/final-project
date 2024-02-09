@@ -17,9 +17,6 @@ const refs = {
 }
 
 let idExercises;
-// idExercises = '64f389465ae26083f39b17a4'; // тимчасова заглушка
-
-// API 
 
 const axios = axiosInstance.create({
     baseURL: 'https://energyflow.b.goit.study/api',
@@ -74,20 +71,18 @@ function openModalExercises(e) {
 
 }
 
-// OPEN AND CLOSE MODAL
+
 function openExercises(e) {
     refs.body.classList.add("modal");
 
     refs.exercises_container.classList.add("active");
     refs.exercises_wrap.classList.add("active");
 
-    // Додаємо слухачі для закриття модального вікна
     refs.moodal_give_rating.addEventListener("click", hideModalExercises);
     refs.exercises_container.addEventListener("click", closeModalExercisesOnClick);
     refs.close_btn.addEventListener("click", closeModalExercises);
     window.addEventListener("keydown", closeModalExercisesOnEsc);
-    
-    // FAVORITE AND FEEDBACK  
+
   refs.modal_add_favorite.addEventListener("click", addToFavorite);
 }
 
@@ -102,7 +97,6 @@ function closeModalExercises(e) {
     refs.exercises_container.classList.remove("active");
     refs.exercises_wrap.classList.remove("active");
 
-    // Видаляємо слухачі
     refs.exercises_container.removeEventListener("click", closeModalExercises);
     refs.close_btn.removeEventListener("click", closeModalExercises);
     window.removeEventListener("keydown", closeModalExercisesOnEsc);
@@ -121,7 +115,6 @@ function hideModalExercises(e) {
   refs.exercises_wrap.classList.remove("active");
 }
 
-// Отримуємо дані з сервера
 
 async function catchExercises(idExercises) {
     
@@ -135,7 +128,6 @@ async function catchExercises(idExercises) {
   }
 }
 
-// Викликаємо функції для рендеру картки
 function markupExercises(exerciseArr) {
     let markup = ``;
 
@@ -191,7 +183,6 @@ function markupStarAndTitle(exerciseArr) {
   
 }
 
-// Правильний рендер зірок
 function starRend(exerciseArr) {
   const starInt = Math.round(exerciseArr.rating); 
 
@@ -233,9 +224,9 @@ function markupDescription(exerciseArr) {
 }
 
 
-// FAVORITES
+
 async function addToFavorite() {
-  // Перевірка
+
     let localStorageData = localStorage.getItem('favorites-exercises');
     let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
 
@@ -258,7 +249,6 @@ let data_favorites = await modalExercisesApi.getExercisesById(`${idExercises}`);
       time: data_favorites.time,
       popularity: data_favorites.popularity,
     };
-    // saveToLS(0, info);
 
     localStorageArr.push(info);
     const jsonString = JSON.stringify(localStorageArr);

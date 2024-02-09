@@ -18,7 +18,7 @@ async function getQuote() {
   const today = new Date();
   const currentDay = today.getDate();
 
-  const storageDate = loadFromLS(keyStorage); // creating a new variable just for convinience to use it with logic operators
+  const storageDate = loadFromLS(keyStorage); 
 
 
   if ((storageDate && currentDay !== storageDate.currentDay) || storageDate === null) {
@@ -44,7 +44,6 @@ async function setFetchQuote(currentDay) {
   saveToLS(keyStorage, quoteData);
 }
 
-// writing our object(quoteData) to our html markup fields
 function addDataQuoteInHTML() {
     storageQuote = loadFromLS(keyStorage);
     refs.quoteText.textContent = storageQuote.data.quote;
