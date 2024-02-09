@@ -1,4 +1,4 @@
-import{l as v,s as f}from"./assets/modal-feedback-44a77efd.js";import{a as x}from"./assets/vendor-4357aed0.js";const d="/final-project/assets/sprite-7f202b5f.svg",w="/final-project/assets/dumbbell-5f5def0b.png",o=document.querySelector(".favorites-list"),m=document.querySelector(".text-wrap"),u="favorites-exercises",y=` <img
+import{l as v,s as f}from"./assets/modal-feedback-2adcceae.js";import{a as x}from"./assets/vendor-4357aed0.js";const d="/final-project/assets/sprite-7f202b5f.svg",w="/final-project/assets/dumbbell-5f5def0b.png",o=document.querySelector(".favorites-list"),m=document.querySelector(".text-wrap"),u="favorites-exercises",y=` <img
         class="img"
         src="${w}"
         alt="dumbbell"

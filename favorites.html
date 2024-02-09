@@ -21,9 +21,9 @@
     
     <script type="module" crossorigin src="/final-project/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/final-project/assets/vendor-4357aed0.js">
-    <link rel="modulepreload" crossorigin href="/final-project/assets/modal-feedback-44a77efd.js">
+    <link rel="modulepreload" crossorigin href="/final-project/assets/modal-feedback-2adcceae.js">
     <link rel="stylesheet" href="/final-project/assets/vendor-e5212ee8.css">
-    <link rel="stylesheet" href="/final-project/assets/modal-feedback-3d52382b.css">
+    <link rel="stylesheet" href="/final-project/assets/modal-feedback-8e431f8e.css">
   </head>
   <body class="favorites-page">
     <header class="site-header section">
@@ -103,7 +103,7 @@
     </div>
   </div>
 </header>
-<!--modal window-->
+
 <div class="menu-container is-hidden js-menu-container" id="mobile-menu">
   <div class="menu-mobail">
     <button class="menu-toggle js-close-menu" type="button" data-modal-close>
@@ -180,6 +180,7 @@
   </div>
 </div>
 
+
     <main>
       <section class="favorites-quote">
   <div class="container quote__inner--favorites">
@@ -224,10 +225,7 @@
   </div>
 </section>
 
-
-      <!-- ===== Favorites-block ===== -->
-
-<section class="favorites-block">
+      <section class="favorites-block">
   <div class="container">
     <div class="favorites-block-container">
       <h2 class="section-title">Favorites</h2>
@@ -238,12 +236,9 @@
 </section>
 
     </main>
-    <!-- дів для фону -->
-<!-- is-hidden -->
-<div class="exercise-modal-container" id="exerciseModal">
-  <!-- дів для модального вікна -->
+
+    <div class="exercise-modal-container" id="exerciseModal">
   <div class="modal-exercise-wrap">
-    <!-- кнопка закриття вікна -->
     <button
       type="button"
       class="close-exercise-btn"
@@ -266,11 +261,7 @@
         />
       </svg>
     </button>
-
-    <!-- рендер вправи -->
     <div class="card-markup-modal"></div>
-
-    <!-- кнопки -->
     <div class="modal-button">
       <button type="button" class="modal-add-favorite">Add to favorites</button>
       <button type="button" class="modal-give-rating is-hidden">
@@ -289,7 +280,7 @@
       data-modal-close-btn=""
     >
       <svg class="modal-icon" width="10" height="10">
-        <use href="../img/sprite.svg#icon-star"></use>
+        <use href="/final-project/assets/sprite-7f202b5f.svg#icon-star"></use>
       </svg>
     </button>
     <form class="form-rating">
@@ -300,32 +291,33 @@
         <input type="radio" id="star1" name="rating" value="1" /><label
           for="star5"
           class="star"
-          ><svg class="icon" width="20" height="20">
-            <use href="../../img/sprite.svg#icon-star"></use></svg
+        >
+          <svg class="icon" width="20" height="20">
+            <use href="/final-project/assets/sprite-7f202b5f.svg#icon-star"></use></svg
         ></label>
         <input type="radio" id="star2" name="rating" value="2" /><label
           for="star4"
           class="star"
           ><svg class="icon" width="20" height="20">
-            <use href="../img/sprite.svg#icon-star"></use></svg
+            <use href="/final-project/assets/sprite-7f202b5f.svg#icon-star"></use></svg
         ></label>
         <input type="radio" id="star3" name="rating" value="3" /><label
           for="star3"
           class="star"
           ><svg class="icon" width="20" height="20">
-            <use href="../img/sprite.svg#icon-star"></use></svg
+            <use href="/final-project/assets/sprite-7f202b5f.svg#icon-star"></use></svg
         ></label>
         <input type="radio" id="star4" name="rating" value="4" /><label
           for="star2"
           class="star"
           ><svg class="icon" width="20" height="20">
-            <use href="../img/sprite.svg#icon-star"></use></svg
+            <use href="/final-project/assets/sprite-7f202b5f.svg#icon-star"></use></svg
         ></label>
         <input type="radio" id="star5" name="rating" value="5" /><label
           for="star1"
           class="star"
           ><svg class="icon" width="20" height="20">
-            <use href="../img/sprite.svg#icon-star"></use></svg
+            <use href="/final-project/assets/sprite-7f202b5f.svg#icon-star"></use></svg
         ></label>
       </div>
       <input
