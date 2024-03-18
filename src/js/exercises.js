@@ -1,4 +1,5 @@
 import axios from 'axios';
+import img from '../img/sprite.svg';
 
 class ExercisesAPI {
   static BASE_URL = 'https://energyflow.b.goit.study';
@@ -338,46 +339,49 @@ function workoutTemplate({
   const modBodyPart = bodyPart[0].toUpperCase() + bodyPart.slice(1);
   const modTarget = target[0].toUpperCase() + target.slice(1);
   return `<li class="workout-item">
-        <div class="top-wrap">
-          <div class="top-wrap-right">
-            <div class="workout">WORKOUT</div>
-            <div class="rating">
-              <span class="rating-number">${modRating}</span>
-              <svg class="icon-star" width="13" height="13">
-                <use href="./img/sprite.svg#icon-star"></use>
-              </svg>
-            </div>
-          </div>
-          <button class="button" type="button" name="start" data-action="start" id="${_id}">
-            Start
-            <svg id="${_id}" class="icon-arrow" width="14" height="14">
-              <use href="./img/sprite.svg#icon-arrow" id="${_id}"></use>
-            </svg>
-          </button>
-        </div>
-        <div class="workout-container">
-          <div class="main-icon-wrap">
-            <svg class="icon-run" width="14" height="16">
-              <use href="./img/sprite.svg#icon-run"></use>
-            </svg>
-          </div>
-          <p class="workout-title single-line">${modName}</p>
-        </div>
-        <div class="workout-info">
-          <p class="workout-info-container">
-            <span class="workout-info-title">Burned calories:</span>
-            <span class="workout-info-value">${burnedCalories} / ${time} min</span>
-          </p>
-          <p class="workout-info-container">
-            <span class="workout-info-title">Body part:</span>
-            <span class="workout-info-value">${modBodyPart}</span>
-          </p>
-          <p class="workout-info-container">
-            <span class="workout-info-title">Target:</span>
-            <span class="workout-info-value">${modTarget}</span>
-          </p>
-        </div>
-      </li>`;
+
+  <div class="top-wrap">
+    <div class="top-wrap-right">
+      <div class="workout">WORKOUT</div>
+
+      <div class="rating">
+        <span class="rating-number">${modRating}</span>
+        <svg id="${_id}" class="icon-star" width="13" height="13">
+          <use href="${img}#icon-star" id="${_id}"></use>
+        </svg>
+      </div>
+
+    </div>
+    <button class="button" type="button" name="start" data-action="start" id="${_id}">
+      Start
+      <svg id="${_id}" class="icon-arrow" width="14" height="14">
+        <use href="${img}#icon-arrow" id="${_id}"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="workout-container">
+    <div class="main-icon-wrap">
+      <svg class="icon-run" width="14" height="16">
+        <use href="${img}#icon-run"></use>
+      </svg>
+    </div>
+    <p class="workout-title single-line">${modName}</p>
+  </div>
+  <div class="workout-info">
+    <p class="workout-info-container">
+      <span class="workout-info-title">Burned calories:</span>
+      <span class="workout-info-value">${burnedCalories} / ${time} min</span>
+    </p>
+    <p class="workout-info-container">
+      <span class="workout-info-title">Body part:</span>
+      <span class="workout-info-value">${modBodyPart}</span>
+    </p>
+    <p class="workout-info-container">
+      <span class="workout-info-title">Target:</span>
+      <span class="workout-info-value">${modTarget}</span>
+    </p>
+  </div>
+</li>`;
 }
 
 function workoutsTemplate(workouts) {
