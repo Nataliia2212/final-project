@@ -18,6 +18,7 @@
     padding: 64px 48px;
   }
 }
+/* =============== TITLE =============== */
 
 .exercises-title {
   color: var(--main-text-color);
@@ -55,6 +56,8 @@
   }
 }
 
+/* =================== FILTER BTN =============== */
+
 .filter-list {
   display: flex;
   justify-content: flex-start;
@@ -66,13 +69,22 @@
   margin-bottom: 40px;
 }
 
+/* ==================== SEARCH ================== */
+
 .search {
   margin-top: 20px;
   border-radius: 30px;
   padding-left: 14px;
+  padding-right: 37px;
   width: 295px;
   height: 42px;
   border: none;
+
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: var(--main-text-color);
 
   position: relative;
 }
@@ -92,6 +104,10 @@
   color: var(--main-text-color);
 }
 
+/* ==================== /SEARCH ================== */
+.loader.is-hidden {
+  display: none;
+}
 
 .is-hidden {
   display: none;
@@ -148,6 +164,8 @@
     padding: 10px 20px;
   }
 }
+
+/* =================== Gallery =============== */
 
 .gallery-list {
   display: flex;
@@ -237,7 +255,7 @@
     margin-bottom: 32px;
   }
 }
-
+/* ================== Page =================== */
 .page-number-list {
   display: flex;
   flex-direction: row;
@@ -281,6 +299,29 @@
   align-items: center;
   justify-content: center;
 }
+
+.page-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-btns.is-hidden {
+  display: none;
+}
+
+.arrow-btn {
+  font-size: 24px;
+  border: none;
+  background-color: inherit;
+  color: var(--main-text-color_a-four);
+}
+
+.arrow-btn:hover {
+  color: var(--main-text-color);
+}
+/* ================ Workout cards ================== */
 
 .workout-list {
   display: flex;
@@ -355,13 +396,14 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
 }
 
 .workout-container {
   display: flex;
   gap: 16px;
   margin-bottom: 16px;
+  align-items: center;
 }
 
 .main-icon-wrap {
@@ -476,6 +518,7 @@
     background-color: var(--white-background-color);
   }
 }
+/* ==================== NEGATIVE RESULT ================ */
 
 .negative-result-text {
   font-family: 'DM Sans', sans-serif;
@@ -520,4 +563,26 @@
 
 .temporary-hidden {
   display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #fff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
