@@ -344,21 +344,21 @@ function workoutTemplate({
             <div class="rating">
               <span class="rating-number">${modRating}</span>
               <svg class="icon-star" width="13" height="13">
-                <use href="../img/sprite.svg#icon-star"></use>
+                <use href="./img/sprite.svg#icon-star"></use>
               </svg>
             </div>
           </div>
           <button class="button" type="button" name="start" data-action="start" id="${_id}">
             Start
             <svg id="${_id}" class="icon-arrow" width="14" height="14">
-              <use href="../img/sprite.svg#icon-arrow" id="${_id}"></use>
+              <use href="./img/sprite.svg#icon-arrow" id="${_id}"></use>
             </svg>
           </button>
         </div>
         <div class="workout-container">
           <div class="main-icon-wrap">
             <svg class="icon-run" width="14" height="16">
-              <use href="../img/sprite.svg#icon-run"></use>
+              <use href="./img/sprite.svg#icon-run"></use>
             </svg>
           </div>
           <p class="workout-title single-line">${modName}</p>
