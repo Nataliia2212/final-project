@@ -1,19 +1,19 @@
-.exercises-container {
+.exercise-container.container {
   width: 335px;
   background-color: var(--second-background-color);
-  border-radius: 30px;
+  border-radius: 50px;
   padding: 40px 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .exercises-container {
+  .exercise-container.container {
     width: 736px;
     padding: 64px 48px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .exercises-container {
+  .exercise-container.container {
     width: 1408px;
     padding: 64px 48px;
   }
@@ -102,6 +102,11 @@
   font-size: 14px;
   line-height: 1.28571;
   color: var(--main-text-color);
+}
+
+/* ==================== /SEARCH ================== */
+.loader.is-hidden {
+  display: none;
 }
 
 /* ==================== /SEARCH ================== */
