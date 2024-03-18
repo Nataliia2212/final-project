@@ -7,13 +7,12 @@ const refs = {
   modal: document.querySelector('[data-modal]'),
 };
 
-console.log(refs.closeModalBtn);
 
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
   refs.modal.classList.add('is-hidden');
-console.log("close")
+
 }
 let rate = null;
 const stars = document.querySelectorAll('.star');
@@ -39,7 +38,9 @@ stars.forEach(star => {
   });
 });
 
-document.querySelector('.form-rating').addEventListener('submit', function (event) {
+document
+  .querySelector('.form-rating')
+  .addEventListener('submit', function (event) {
     event.preventDefault();
 
     const emailValue = formElemEmail.value;
@@ -81,14 +82,13 @@ async function fetchUpdateRating(id, dataRating) {
 
   return axios.patch(url, dataRating);
 }
-refs.openModalBtn.addEventListener('click', (e) => {
-const id = e.target.dataset.id;
-showModal(id);
+refs.openModalBtn.addEventListener('click', e => {
+  const id = e.target.dataset.id;
+  showModal(id);
+});
 
-})
-
-function showModal(id){
-    refs.modal.classList.remove('visually-hidden');
-    refs.modal.firstElementChild.setAttribute('data-id', id)
+function showModal(id) {
+  refs.modal.classList.remove('visually-hidden');
+  refs.modal.firstElementChild.setAttribute('data-id', id);
 }
 
