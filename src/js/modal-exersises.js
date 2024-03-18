@@ -1,56 +1,54 @@
-import axiosInstance from "axios";
-import { saveToLS, loadFromLS } from "./localStorage";
+import axiosInstance from 'axios';
+import { saveToLS, loadFromLS } from './localStorage';
 import { restoreData } from './favorites-block';
 
-const keyLS = "favorites-exercises";
+const keyLS = 'favorites-exercises';
 const refs = {
-  favorites_btn: document.querySelector(".favorites-list"), 
-    exercises_container: document.querySelector(".exercise-modal-container"),
-    exercises_wrap: document.querySelector(".modal-exercise-wrap"),
-    close_btn: document.querySelector(".close-exercise-btn"),
-    card_markup_modal: document.querySelector(".card-markup-modal"),
-    modal_button: document.querySelector(".modal-button"),
-    modal_add_favorite: document.querySelector(".modal-add-favorite"),
-    moodal_give_rating: document.querySelector(".modal-give-rating"),
-    body: document.querySelector("body"),
-    
-}
+  favorites_btn: document.querySelector('.favorites-list'),
+  exercises_container: document.querySelector('.exercise-modal-container'),
+  exercises_wrap: document.querySelector('.modal-exercise-wrap'),
+  close_btn: document.querySelector('.close-exercise-btn'),
+  card_markup_modal: document.querySelector('.card-markup-modal'),
+  modal_button: document.querySelector('.modal-button'),
+  modal_add_favorite: document.querySelector('.modal-add-favorite'),
+  moodal_give_rating: document.querySelector('.modal-give-rating'),
+  body: document.querySelector('body'),
+};
 
 let idExercises;
 
 const axios = axiosInstance.create({
-    baseURL: 'https://energyflow.b.goit.study/api',
-})
+  baseURL: 'https://energyflow.b.goit.study/api',
+});
 class goitGlobalAPI {
-    constructor() {
-    }
-    getExercisesById(id) {
-        return axios.get(`/exercises/${id}`).then(response => response.data);
-    }
- }
+  constructor() {}
+  getExercisesById(id) {
+    return axios.get(`/exercises/${id}`).then(response => response.data);
+  }
+}
 const modalExercisesApi = new goitGlobalAPI();
 
 try {
-refs.favorites_btn.addEventListener("click", openModalExercises);
-}catch (error) {
-  console.log(error)
-};
+  refs.favorites_btn.addEventListener('click', openModalExercises);
+} catch (error) {
+  console.log(error);
+}
 
 function openModalExercises(e) {
-    if (!e.target.closest('.button')) {
-        return;
-    };
-    
-    const clickedExercises = e.target.closest('.button');
-    if (!clickedExercises) return;
+  if (!e.target.closest('.button')) {
+    return;
+  }
 
-    idExercises = clickedExercises.id;
-    
+  const clickedExercises = e.target.closest('.button');
+  if (!clickedExercises) return;
+
+  idExercises = clickedExercises.id;
+
   refs.moodal_give_rating.setAttribute('id', `${idExercises}`);
-  
-    openExercises();
 
-    catchExercises(idExercises);
+  openExercises();
+
+  catchExercises(idExercises);
 
   let localStorageData = localStorage.getItem('favorites-exercises');
   let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
@@ -59,89 +57,86 @@ function openModalExercises(e) {
     localStorageArr = [];
   }
 
-  let isElementPresent = localStorageArr.some(function(exercise) {
-  return exercise._id === idExercises;
-});
+  let isElementPresent = localStorageArr.some(function (exercise) {
+    return exercise._id === idExercises;
+  });
 
   if (isElementPresent) {
-    refs.modal_add_favorite.textContent = "Remove from ";
+    refs.modal_add_favorite.textContent = 'Remove from ';
   } else {
-      refs.modal_add_favorite.textContent = "Add to favorites";
+    refs.modal_add_favorite.textContent = 'Add to favorites';
   }
-
 }
 
-
 function openExercises(e) {
-    refs.body.classList.add("modal");
+  refs.body.classList.add('modal');
 
-    refs.exercises_container.classList.add("active");
-    refs.exercises_wrap.classList.add("active");
+  refs.exercises_container.classList.add('active');
+  refs.exercises_wrap.classList.add('active');
 
-    refs.moodal_give_rating.addEventListener("click", hideModalExercises);
-    refs.exercises_container.addEventListener("click", closeModalExercisesOnClick);
-    refs.close_btn.addEventListener("click", closeModalExercises);
-    window.addEventListener("keydown", closeModalExercisesOnEsc);
+  refs.moodal_give_rating.addEventListener('click', hideModalExercises);
+  refs.exercises_container.addEventListener(
+    'click',
+    closeModalExercisesOnClick
+  );
+  refs.close_btn.addEventListener('click', closeModalExercises);
+  window.addEventListener('keydown', closeModalExercisesOnEsc);
 
-  refs.modal_add_favorite.addEventListener("click", addToFavorite);
+  refs.modal_add_favorite.addEventListener('click', addToFavorite);
 }
 
 function closeModalExercisesOnClick(e) {
-    if (e.target === refs.exercises_container) {
-        closeModalExercises(e);
-     }
+  if (e.target === refs.exercises_container) {
+    closeModalExercises(e);
+  }
 }
 
 function closeModalExercises(e) {
-    refs.body.classList.remove("modal");
-    refs.exercises_container.classList.remove("active");
-    refs.exercises_wrap.classList.remove("active");
+  refs.body.classList.remove('modal');
+  refs.exercises_container.classList.remove('active');
+  refs.exercises_wrap.classList.remove('active');
 
-    refs.exercises_container.removeEventListener("click", closeModalExercises);
-    refs.close_btn.removeEventListener("click", closeModalExercises);
-    window.removeEventListener("keydown", closeModalExercisesOnEsc);
-    
-    refs.card_markup_modal.classList.add("is-hidden");
-    refs.modal_button.classList.add("is-hidden");
+  refs.exercises_container.removeEventListener('click', closeModalExercises);
+  refs.close_btn.removeEventListener('click', closeModalExercises);
+  window.removeEventListener('keydown', closeModalExercisesOnEsc);
+
+  refs.card_markup_modal.classList.add('is-hidden');
+  refs.modal_button.classList.add('is-hidden');
 }
 
 function closeModalExercisesOnEsc(e) {
-    if (e.key === "Escape") {
-        closeModalExercises(e);
-    }
+  if (e.key === 'Escape') {
+    closeModalExercises(e);
+  }
 }
 
 function hideModalExercises(e) {
-  refs.exercises_wrap.classList.remove("active");
+  refs.exercises_wrap.classList.remove('active');
 }
 
-
 async function catchExercises(idExercises) {
-    
   try {
-      const data = await modalExercisesApi.getExercisesById(`${idExercises}`);
-      refs.card_markup_modal.innerHTML = markupExercises(data);
+    const data = await modalExercisesApi.getExercisesById(`${idExercises}`);
+    refs.card_markup_modal.innerHTML = markupExercises(data);
     starRend(data);
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`Error: ${err}`);
   }
 }
 
 function markupExercises(exerciseArr) {
-    let markup = ``;
+  let markup = ``;
 
-    markup += markupGIF(exerciseArr);
-    markup += markupStarAndTitle(exerciseArr);
-    markup += markupCharacteristics(exerciseArr);
-    markup += markupDescription(exerciseArr);
-    
+  markup += markupGIF(exerciseArr);
+  markup += markupStarAndTitle(exerciseArr);
+  markup += markupCharacteristics(exerciseArr);
+  markup += markupDescription(exerciseArr);
 
-    return markup;
+  return markup;
 }
 
 function markupGIF(exerciseArr) {
-    return `      <!-- дів для gif -->
+  return `      <!-- дів для gif -->
       <div class="modal-gif">
           <img
             class="modal-iframe-gif"
@@ -150,7 +145,7 @@ function markupGIF(exerciseArr) {
             width="295"
             height="295"
           />
-      </div>`
+      </div>`;
 }
 
 function markupStarAndTitle(exerciseArr) {
@@ -180,20 +175,19 @@ function markupStarAndTitle(exerciseArr) {
         </div>
         </div>
        `;
-  
 }
 
 function starRend(exerciseArr) {
-  const starInt = Math.round(exerciseArr.rating); 
+  const starInt = Math.round(exerciseArr.rating);
 
-  for (let i = 1; i <= starInt; i++){
+  for (let i = 1; i <= starInt; i++) {
     const star = document.querySelector(`.star-${i}`);
-    star.classList.add("activeStar");
+    star.classList.add('activeStar');
   }
 }
 
 function markupCharacteristics(exerciseArr) {
-    const markupTag = ` <!-- Teg -->
+  const markupTag = ` <!-- Teg -->
     <div class="modal-teg">
           <ul class="modal-hashtag-list">
             <li class="modal-name-characteristics"> <span class = "modal-characteristics"> Target </span>
@@ -211,31 +205,30 @@ function markupCharacteristics(exerciseArr) {
                 <li class="modal-name-characteristics"> <span class = "modal-characteristics"> Burned Calories </span>
                 <span class="modal-value">${exerciseArr.burnedCalories}/${exerciseArr.time}</span> </li>
           </ul>
-        </div>`
-    
-    return markupTag;
+        </div>`;
+
+  return markupTag;
 }
 
 function markupDescription(exerciseArr) {
-    return `<p class="modal-recipe-description">
+  return `<p class="modal-recipe-description">
           ${exerciseArr.description}
         </p>
-      </div>`
+      </div>`;
 }
 
-
-
 async function addToFavorite() {
+  let localStorageData = localStorage.getItem('favorites-exercises');
+  let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
 
-    let localStorageData = localStorage.getItem('favorites-exercises');
-    let localStorageArr = localStorageData ? JSON.parse(localStorageData) : [];
-
-    if (!Array.isArray(localStorageArr)) {
-      localStorageArr = [];
+  if (!Array.isArray(localStorageArr)) {
+    localStorageArr = [];
   }
 
-let data_favorites = await modalExercisesApi.getExercisesById(`${idExercises}`);
-  if (refs.modal_add_favorite.textContent === "Add to favorites") {
+  let data_favorites = await modalExercisesApi.getExercisesById(
+    `${idExercises}`
+  );
+  if (refs.modal_add_favorite.textContent === 'Add to favorites') {
     const info = {
       _id: data_favorites._id,
       bodyPart: data_favorites.bodyPart,
@@ -254,26 +247,24 @@ let data_favorites = await modalExercisesApi.getExercisesById(`${idExercises}`);
     const jsonString = JSON.stringify(localStorageArr);
 
     localStorage.setItem('favorites-exercises', jsonString);
-      refs.modal_add_favorite.textContent = "Remove from ";
-      
+    refs.modal_add_favorite.textContent = 'Remove from ';
   } else {
-      refs.modal_add_favorite.textContent = "Add to favorites";
-      deleteExercise(idExercises);
-      restoreData();
+    refs.modal_add_favorite.textContent = 'Add to favorites';
+    deleteExercise(idExercises);
+    restoreData();
   }
-  
 }
 
 function deleteExercise(id) {
-    const exercises = loadFromLS(keyLS)
-    const ex = [];
-  
-    exercises.map((element) => { 
-      if (element._id !== id) {
-        ex.push(element)
-      }
-      return ex
-    });
+  const exercises = loadFromLS(keyLS);
+  const ex = [];
 
-    return saveToLS(keyLS, ex)
+  exercises.map(element => {
+    if (element._id !== id) {
+      ex.push(element);
+    }
+    return ex;
+  });
+
+  return saveToLS(keyLS, ex);
 }

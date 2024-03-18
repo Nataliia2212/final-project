@@ -1,4 +1,5 @@
 import axios from 'axios';
+import img from '../img/sprite.svg';
 
 class ExercisesAPI {
   static BASE_URL = 'https://energyflow.b.goit.study';
@@ -13,12 +14,12 @@ class ExercisesAPI {
     this.name = '';
   }
 
-  fetchImages() {
+  fetchImages(page) {
     ExercisesAPI.END_POINT = '/api/filters';
 
     const url = ExercisesAPI.BASE_URL + ExercisesAPI.END_POINT;
     const params = {
-      page: this.page,
+      page,
       limit: this.perPage,
       totalPages: this.totalPages,
       filter: this.filter,
@@ -27,7 +28,7 @@ class ExercisesAPI {
     return axios.get(url, { params }).then(response => response.data);
   }
 
-  fetchExercises() {
+  fetchExercises(page) {
     ExercisesAPI.END_POINT = '/api/exercises';
     const url = ExercisesAPI.BASE_URL + ExercisesAPI.END_POINT;
     const params = {
@@ -35,7 +36,7 @@ class ExercisesAPI {
       bodypart: this.bodypart,
       equipment: this.equipment,
       limit: this.perPage,
-      page: this.page,
+      page,
       keyword: this.keyword,
     };
     return axios.get(url, { params }).then(response => response.data);
@@ -49,8 +50,7 @@ const filterBTN = document.querySelector('.filter-list');
 const btn = document.querySelectorAll('.filter-button');
 const title = document.querySelector('.exercises-title');
 let elem = document.getElementsByClassName('active-btn');
-const pages = document.querySelector('.page-number-list');
-const workoutPages = document.querySelector('.page-number-list-workout');
+
 const workoutPagesContainer = document.querySelector('.page-btns');
 let mediaT = window.matchMedia('(min-width: 768px)');
 let mediaD = window.matchMedia('(min-width: 1440px)');
@@ -59,45 +59,162 @@ const loader = document.querySelector('.loader');
 
 const form = document.querySelector('.form');
 const input = document.querySelector('.search');
-const submitBtn = document.querySelector('.svg-button');
 const negativeRes = document.querySelector('.negative-result');
 
+class Pagination {
+  #page = 1;
+  #totalPages = 1;
 
-async function defaultSettings() {
-  exercisesAPI.filter = 'Muscles';
-  exercisesAPI.page = 1;
+  constructor({ selector }) {
+    this.ref = document.querySelector(selector);
+    this.ref.addEventListener('click', this.handleClick);
+  }
+  createPagination() {
+    let item = ``;
+    let activeItem = '';
+    let beforePages = this.#page - 1;
+    let afterPages = this.#page + 1;
 
-  let markup;
-  let pageMarkup;
-
-  try {
-    if (!mediaT.matches) {
-      exercisesAPI.perPage = 8;
-      const result = await exercisesAPI.fetchImages();
-      markup = imagesTemplate(result.results);
-      pageMarkup = pagesTemplate(result.totalPages);
-    } else {
-      exercisesAPI.perPage = 12;
-      const result = await exercisesAPI.fetchImages();
-      markup = imagesTemplate(result.results);
-      pageMarkup = pagesTemplate(result.totalPages);
+    if (this.#totalPages === 1) {
+      this.ref.innerHTML = `<li class="page-number-item active-page" data-page='1'>1</li>`;
+      return;
     }
 
+    if (this.#page > 1) {
+      item += `<li class="arrow-btn" data-page='${this.#page - 1}'>&lt;</li>`;
+    }
+
+    if (this.#page > 2 && this.#totalPages > 5) {
+      item += `<li class="page-number-item" data-page='1'>1</li>`;
+      if (this.#page > 3) {
+        item += `<li class="dots">...</li>`;
+      }
+    }
+
+    if (this.#page === this.#totalPages) {
+      beforePages -= 2;
+    } else if (this.#page === this.#totalPages - 1) {
+      beforePages -= 1;
+    }
+
+    if (this.#page === 1) {
+      afterPages += 2;
+    } else if (this.#page === 2) {
+      afterPages += 1;
+    }
+
+    for (let pageLength = beforePages; pageLength <= afterPages; pageLength++) {
+      if (pageLength > this.#totalPages || pageLength < 0) {
+        continue;
+      }
+
+      if (pageLength === 0) {
+        pageLength = pageLength + 1;
+      }
+
+      if (this.#page === pageLength) {
+        activeItem = 'active-page';
+      } else {
+        activeItem = '';
+      }
+      item += `<li class="page-number-item ${activeItem}" data-page='${pageLength}'>${pageLength}</li>`;
+    }
+
+    if (this.#page < this.#totalPages - 1 && this.#totalPages > 5) {
+      if (this.#page < this.#totalPages - 2) {
+        item += `<li class="dots">...</li>`;
+      }
+
+      item += `<li class="page-number-item" data-page='${this.#totalPages}'>${
+        this.#totalPages
+      }</li>`;
+    }
+
+    if (this.#page < this.#totalPages) {
+      item += `<li class="arrow-btn" data-page='${this.#page + 1}'>&gt;</li>`;
+    }
+    this.ref.innerHTML = item;
+  }
+  handleClick = event => {
+    if (
+      event.target.nodeName !== 'LI' ||
+      event.target.classList.contains('dots')
+    ) {
+      return;
+    }
+    const { dataset } = event.target;
+
+    this.setPage = Number(dataset.page);
+    this.createPagination();
+    this.callback(this.#page);
+  };
+
+  set totalPages(total) {
+    this.#totalPages = total;
+    this.ref.innerHTML = '';
+    this.createPagination();
+  }
+  set setPage(page) {
+    this.#page = page;
+  }
+
+  on(callback) {
+    this.callback = callback;
+  }
+  off() {
+    this.callback = () => {};
+  }
+}
+
+const pagination = new Pagination({
+  selector: '.js-pagination-list',
+});
+
+const paginationFetchImages = async (page = 1) => {
+  try {
+    const result = await exercisesAPI.fetchImages(page);
+
+    const markup = imagesTemplate(result.results);
+    pagination.totalPages = result.totalPages;
     if (elem) {
       gallery.innerHTML = markup;
     }
-
-    pages.innerHTML = pageMarkup;
-    const firstPage = pages.querySelector('li:first-child');
-    firstPage.classList.add('active-page');
   } catch (error) {
     console.log(error.message);
   } finally {
     loader.classList.add('is-hidden');
   }
+};
+
+const paginationfetchExercises = async (page = 1) => {
+  try {
+    const data = await exercisesAPI.fetchExercises(page);
+    const workoutMarkup = workoutsTemplate(data.results);
+    gallery.innerHTML = workoutMarkup;
+
+    pagination.totalPages = data.totalPages;
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    loader.classList.add('is-hidden');
+  }
+};
+
+async function defaultSettings() {
+  exercisesAPI.filter = 'Muscles';
+
+  if (!mediaT.matches) {
+    exercisesAPI.perPage = 8;
+  } else {
+    exercisesAPI.perPage = 12;
+  }
+
+  paginationFetchImages();
 }
 
 defaultSettings();
+
+pagination.on(paginationFetchImages);
 
 filterBTN.addEventListener('click', onFilterBtnClick);
 
@@ -106,6 +223,7 @@ async function onFilterBtnClick(e) {
   negativeRes.classList.add('is-hidden');
   form.classList.add('is-hidden');
   exercisesAPI.keyword = '';
+  workoutPagesContainer.classList.remove('is-hidden');
 
   title.textContent = 'Exercises';
 
@@ -131,33 +249,14 @@ async function onFilterBtnClick(e) {
     return;
   }
 
-  let markup;
-  let pageMarkup;
-
   if (!mediaT.matches) {
     exercisesAPI.perPage = 8;
   } else {
     exercisesAPI.perPage = 12;
   }
-  exercisesAPI.page = 1;
-  try {
-    const result = await exercisesAPI.fetchImages();
-    markup = imagesTemplate(result.results);
-    if (elem) {
-      gallery.innerHTML = markup;
-    }
 
-    workoutPages.innerHTML = '';
-
-    pageMarkup = pagesTemplate(result.totalPages);
-    pages.innerHTML = pageMarkup;
-    const firstPage = pages.querySelector('li:first-child');
-    firstPage.classList.add('active-page');
-  } catch (error) {
-    console.log(error.message);
-  } finally {
-    loader.classList.add('is-hidden');
-  }
+  pagination.setPage = 1;
+  paginationFetchImages();
 }
 
 function imgTemplate({ filter, imgUrl, name }) {
@@ -181,81 +280,15 @@ function imagesTemplate(images) {
   return images.map(imgTemplate).join('');
 }
 
-pages.addEventListener('click', handlePages);
-async function handlePages(ev) {
-  if (ev.target.classList.contains('page-number-item')) {
-    let pageItems = document.querySelectorAll('.page-number-item');
-    let pageNumber = ev.target.textContent;
-    pageItems.forEach(page => {
-      if (
-        page.getElementsByClassName('active-page') ===
-        ev.target.getElementsByClassName('active-page')
-      ) {
-        page.classList.add('active-page');
-      } else {
-        page.classList.remove('active-page');
-      }
-    });
-    exercisesAPI.page = pageNumber;
-    const result = await exercisesAPI.fetchImages();
-    const markup = imagesTemplate(result.results);
-    if (elem) {
-      gallery.innerHTML = markup;
-    }
-  } else {
-    return;
-  }
-}
-
-workoutPages.addEventListener('click', handleWorkoutPages);
-async function handleWorkoutPages(ev) {
-  if (ev.target.classList.contains('page-number-item')) {
-    let pageItems = document.querySelectorAll('.page-number-item');
-    let pageNumber = ev.target.textContent;
-    pageItems.forEach(page => {
-      if (
-        page.getElementsByClassName('active-page') ===
-        ev.target.getElementsByClassName('active-page')
-      ) {
-        page.classList.add('active-page');
-      } else {
-        page.classList.remove('active-page');
-      }
-    });
-    exercisesAPI.page = pageNumber;
-    const result = await exercisesAPI.fetchExercises();
-    const markup = workoutsTemplate(result.results);
-    if (elem) {
-      gallery.innerHTML = markup;
-    }
-  } else {
-    return;
-  }
-}
-
-function pageTemplate(pageNumber) {
-  return `<li class="page-number-item">${pageNumber}</li>`;
-}
-
-function pagesTemplate(total) {
-  const pagesArray = [];
-  for (let i = 1; i <= total; i++) {
-    pagesArray.push(pageTemplate(i));
-  }
-  return pagesArray.join(' ');
-}
-
 gallery.addEventListener('click', onGalleryIMGClick);
 
 async function onGalleryIMGClick(evt) {
   loader.classList.remove('is-hidden');
 
   form.classList.remove('is-hidden');
-  exercisesAPI.page = 1;
+
   const liElem = evt.target.closest('.gallery-item');
   if (liElem) {
-    let workoutMarkup;
-    let pageMarkup;
     const hightLightedText =
       liElem.lastElementChild.firstElementChild.textContent;
 
@@ -286,47 +319,9 @@ async function onGalleryIMGClick(evt) {
     } else if ('equipment' === filterExercise.innerText.toLowerCase()) {
       exercisesAPI.equipment = filterName.innerText.toLowerCase();
     }
-
-    try {
-      const data = await exercisesAPI.fetchExercises();
-      workoutMarkup = workoutsTemplate(data.results);
-      gallery.innerHTML = workoutMarkup;
-      // workoutMarkup = workoutsTemplate(data.results);
-      workoutPagesContainer.classList.remove('is-hidden');
-      pages.innerHTML = '';
-      console.log(data.totalPages);
-      pageMarkup = pagesTemplate(data.totalPages);
-      workoutPages.innerHTML = pageMarkup;
-      const firstPage = workoutPages.querySelector('li:first-child');
-      firstPage.classList.add('active-page');
-    } catch (error) {
-      console.log(error.message);
-    } finally {
-      loader.classList.add('is-hidden');
-    }
-
-     if (!mediaT.matches) {
-      if (data.totalPages > 5) {
-        workoutPages.style.maxWidth = '45%';
-        workoutPages.style.margin = '0 auto';
-        workoutPages.style.justifyContent = 'flex-start';
-        workoutPages.style.overflow = 'hidden';
-      }
-    } else if (mediaT.matches) {
-      if (data.totalPages > 21) {
-        workoutPages.style.maxWidth = '100%';
-        workoutPages.style.margin = '0 auto';
-        workoutPages.style.justifyContent = 'flex-start';
-        workoutPages.style.overflow = 'hidden';
-      } else {
-        workoutPages.style.justifyContent = 'center';
-      }
-    } else if (mediaD.matches) {
-      workoutPages.style.margin = '0 auto';
-    }
-
- 
-
+    pagination.setPage = 1;
+    paginationfetchExercises();
+    pagination.on(paginationfetchExercises);
   }
 }
 
@@ -344,52 +339,54 @@ function workoutTemplate({
   const modBodyPart = bodyPart[0].toUpperCase() + bodyPart.slice(1);
   const modTarget = target[0].toUpperCase() + target.slice(1);
   return `<li class="workout-item">
-        <div class="top-wrap">
-          <div class="top-wrap-right">
-            <div class="workout">WORKOUT</div>
-            <div class="rating">
-              <span class="rating-number">${modRating}</span>
-              <svg class="icon-star" width="13" height="13">
-                <use href="./img/sprite.svg#icon-star"></use>
-              </svg>
-            </div>
-          </div>
-          <button class="button" type="button" name="start" data-action="start" id="${_id}">
-            Start
-            <svg id="${_id}" class="icon-arrow" width="14" height="14">
-              <use href="./img/sprite.svg#icon-arrow" id="${_id}"></use>
-            </svg>
-          </button>
-        </div>
-        <div class="workout-container">
-          <div class="main-icon-wrap">
-            <svg class="icon-run" width="14" height="16">
-              <use href="./img/sprite.svg#icon-run"></use>
-            </svg>
-          </div>
-          <p class="workout-title single-line">${modName}</p>
-        </div>
-        <div class="workout-info">
-          <p class="workout-info-container">
-            <span class="workout-info-title">Burned calories:</span>
-            <span class="workout-info-value">${burnedCalories} / ${time} min</span>
-          </p>
-          <p class="workout-info-container">
-            <span class="workout-info-title">Body part:</span>
-            <span class="workout-info-value">${modBodyPart}</span>
-          </p>
-          <p class="workout-info-container">
-            <span class="workout-info-title">Target:</span>
-            <span class="workout-info-value">${modTarget}</span>
-          </p>
-        </div>
-      </li>`;
+
+  <div class="top-wrap">
+    <div class="top-wrap-right">
+      <div class="workout">WORKOUT</div>
+
+      <div class="rating">
+        <span class="rating-number">${modRating}</span>
+        <svg id="${_id}" class="icon-star" width="13" height="13">
+          <use href="${img}#icon-star" id="${_id}"></use>
+        </svg>
+      </div>
+
+    </div>
+    <button class="button" type="button" name="start" data-action="start" id="${_id}">
+      Start
+      <svg id="${_id}" class="icon-arrow" width="14" height="14">
+        <use href="${img}#icon-arrow" id="${_id}"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="workout-container">
+    <div class="main-icon-wrap">
+      <svg class="icon-run" width="14" height="16">
+        <use href="${img}#icon-run"></use>
+      </svg>
+    </div>
+    <p class="workout-title single-line">${modName}</p>
+  </div>
+  <div class="workout-info">
+    <p class="workout-info-container">
+      <span class="workout-info-title">Burned calories:</span>
+      <span class="workout-info-value">${burnedCalories} / ${time} min</span>
+    </p>
+    <p class="workout-info-container">
+      <span class="workout-info-title">Body part:</span>
+      <span class="workout-info-value">${modBodyPart}</span>
+    </p>
+    <p class="workout-info-container">
+      <span class="workout-info-title">Target:</span>
+      <span class="workout-info-value">${modTarget}</span>
+    </p>
+  </div>
+</li>`;
 }
 
 function workoutsTemplate(workouts) {
   return workouts.map(workoutTemplate).join('');
 }
-
 
 form.addEventListener('submit', onSearch);
 
@@ -405,17 +402,18 @@ async function onSearch(e) {
 
   try {
     exercisesAPI.keyword = searchInput;
-    const { results, totalPages } = await exercisesAPI.fetchExercises();
+    pagination.setPage = 1;
+    const { results, totalPages } = await exercisesAPI.fetchExercises(1);
     input.value = '';
 
     if (results.length > 0) {
       const workoutMarkup = workoutsTemplate(results);
+
       gallery.innerHTML = workoutMarkup;
+
       negativeRes.classList.add('is-hidden');
-      const pageMarkup = pagesTemplate(totalPages);
-      workoutPages.innerHTML = pageMarkup;
-      const firstPage = workoutPages.querySelector('li:first-child');
-      firstPage.classList.add('active-page');
+
+      pagination.totalPages = totalPages;
     } else {
       gallery.innerHTML = '';
       negativeRes.classList.remove('is-hidden');
@@ -427,4 +425,3 @@ async function onSearch(e) {
     loader.classList.add('is-hidden');
   }
 }
-
