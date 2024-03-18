@@ -279,6 +279,7 @@
   line-height: 1.6;
   letter-spacing: 0.04em;
   color: var(--main-text-color_a-four);
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .page-number-item:hover {
@@ -311,15 +312,27 @@
   display: none;
 }
 
-.arrow-btn {
+.arrow-btn,
+.dots {
   font-size: 24px;
   border: none;
   background-color: inherit;
   color: var(--main-text-color_a-four);
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .arrow-btn:hover {
   color: var(--main-text-color);
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.pagination-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 /* ================ Workout cards ================== */
 
