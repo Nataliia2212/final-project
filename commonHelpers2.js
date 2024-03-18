@@ -18,21 +18,21 @@ var R=Object.defineProperty;var D=(t,e,s)=>e in t?R(t,e,{enumerable:!0,configura
             <div class="rating">
               <span class="rating-number">${A}</span>
               <svg class="icon-star" width="13" height="13">
-                <use href="../img/sprite.svg#icon-star"></use>
+                <use href="./img/sprite.svg#icon-star"></use>
               </svg>
             </div>
           </div>
           <button class="button" type="button" name="start" data-action="start" id="${L}">
             Start
             <svg id="${L}" class="icon-arrow" width="14" height="14">
-              <use href="../img/sprite.svg#icon-arrow" id="${L}"></use>
+              <use href="./img/sprite.svg#icon-arrow" id="${L}"></use>
             </svg>
           </button>
         </div>
         <div class="workout-container">
           <div class="main-icon-wrap">
             <svg class="icon-run" width="14" height="16">
-              <use href="../img/sprite.svg#icon-run"></use>
+              <use href="./img/sprite.svg#icon-run"></use>
             </svg>
           </div>
           <p class="workout-title single-line">${H}</p>
