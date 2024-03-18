@@ -7,13 +7,12 @@ const refs = {
   modal: document.querySelector('[data-modal]'),
 };
 
-// console.log(refs.closeModalBtn);
-// console.log(refs.openModalBtn);
+
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
   refs.modal.classList.add('is-hidden');
-  console.log('close');
+
 }
 let rate = null;
 const stars = document.querySelectorAll('.star');
@@ -61,8 +60,6 @@ document
         .then(() => {
           refs.modal.classList.add('is-hidden');
           let id = refs.openModalBtn.id;
-          // const exercises_wrap = documen.querySelector('.modal-exercise-wrap');
-          // exercises_wrap.classList.add('active');
         })
         .catch(error => {
           iziToast.error({
@@ -94,4 +91,4 @@ function showModal(id) {
   refs.modal.classList.remove('visually-hidden');
   refs.modal.firstElementChild.setAttribute('data-id', id);
 }
-//  showModal(id);
+

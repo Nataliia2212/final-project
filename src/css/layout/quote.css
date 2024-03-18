@@ -94,13 +94,7 @@ blockquote {
   }
 }
 
-/*! =============== Tablet_768px =============== */
 @media screen and (min-width: 768px) {
-  /* .container {
-    max-width: 768px;
-    padding: 0 16px;
-  } */
-
   .quote__inner {
     width: 768px;
   }
@@ -179,9 +173,6 @@ blockquote {
   }
 }
 
-/* ==============/ Tablet_768px =============== */
-
-/*! =============== Desktop_1440px ============== */
 @media screen and (min-width: 1440px) {
   .quote__inner {
     width: 1440px;
@@ -204,7 +195,6 @@ blockquote {
 
   .quote__img {
     width: 704px;
-    /* height: 100%; */
   }
 
   .background__image {
@@ -222,4 +212,3 @@ blockquote {
   }
 }
 
-/* ===============/ Desktop_1440px ============== */

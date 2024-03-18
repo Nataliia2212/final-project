@@ -62,6 +62,7 @@ const input = document.querySelector('.search');
 const submitBtn = document.querySelector('.svg-button');
 const negativeRes = document.querySelector('.negative-result');
 
+
 async function defaultSettings() {
   exercisesAPI.filter = 'Muscles';
   exercisesAPI.page = 1;
@@ -285,6 +286,7 @@ async function onGalleryIMGClick(evt) {
     } else if ('equipment' === filterExercise.innerText.toLowerCase()) {
       exercisesAPI.equipment = filterName.innerText.toLowerCase();
     }
+
     try {
       const data = await exercisesAPI.fetchExercises();
       workoutMarkup = workoutsTemplate(data.results);
@@ -302,6 +304,29 @@ async function onGalleryIMGClick(evt) {
     } finally {
       loader.classList.add('is-hidden');
     }
+
+     if (!mediaT.matches) {
+      if (data.totalPages > 5) {
+        workoutPages.style.maxWidth = '45%';
+        workoutPages.style.margin = '0 auto';
+        workoutPages.style.justifyContent = 'flex-start';
+        workoutPages.style.overflow = 'hidden';
+      }
+    } else if (mediaT.matches) {
+      if (data.totalPages > 21) {
+        workoutPages.style.maxWidth = '100%';
+        workoutPages.style.margin = '0 auto';
+        workoutPages.style.justifyContent = 'flex-start';
+        workoutPages.style.overflow = 'hidden';
+      } else {
+        workoutPages.style.justifyContent = 'center';
+      }
+    } else if (mediaD.matches) {
+      workoutPages.style.margin = '0 auto';
+    }
+
+ 
+
   }
 }
 
@@ -325,21 +350,21 @@ function workoutTemplate({
             <div class="rating">
               <span class="rating-number">${modRating}</span>
               <svg class="icon-star" width="13" height="13">
-                <use href="../img/sprite.svg#icon-star"></use>
+                <use href="./img/sprite.svg#icon-star"></use>
               </svg>
             </div>
           </div>
           <button class="button" type="button" name="start" data-action="start" id="${_id}">
             Start
             <svg id="${_id}" class="icon-arrow" width="14" height="14">
-              <use href="../img/sprite.svg#icon-arrow" id="${_id}"></use>
+              <use href="./img/sprite.svg#icon-arrow" id="${_id}"></use>
             </svg>
           </button>
         </div>
         <div class="workout-container">
           <div class="main-icon-wrap">
             <svg class="icon-run" width="14" height="16">
-              <use href="../img/sprite.svg#icon-run"></use>
+              <use href="./img/sprite.svg#icon-run"></use>
             </svg>
           </div>
           <p class="workout-title single-line">${modName}</p>
@@ -364,6 +389,7 @@ function workoutTemplate({
 function workoutsTemplate(workouts) {
   return workouts.map(workoutTemplate).join('');
 }
+
 
 form.addEventListener('submit', onSearch);
 
@@ -401,3 +427,4 @@ async function onSearch(e) {
     loader.classList.add('is-hidden');
   }
 }
+

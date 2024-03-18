@@ -1,38 +1,4 @@
 import * as bodyScrollLock from 'body-scroll-lock';
-// const homeLink = document.querySelector('.js-link-home');
-// console.log(homeLink);
-// const favorLink = document.querySelector('.js-link-favor');
-// console.log(favorLink);
-
-// homeLink.addEventListener('click', function (event) {
-//   event.preventDefault();
-//   addClassHome();
-// });
-
-// favorLink.addEventListener('click', function (event) {
-//   event.preventDefault();
-//   addClassFavor();
-// });
-
-// function addClassHome() {
-//   homeLink.classList.add('site-favor');
-//   removeClassFavor();
-// }
-
-// function addClassFavor() {
-//   favorLink.classList.add('site-header-favor');
-//   removeClassHome();
-// }
-
-// function removeClassHome() {
-//   homeLink.classList.remove('site-favor');
-// }
-
-// function removeClassFavor() {
-//   favorLink.classList.remove('site-header-favor');
-// }
-
-// modal window
 
 (() => {
   const refs = {
@@ -70,7 +36,6 @@ import * as bodyScrollLock from 'body-scroll-lock';
   openMenuBtn.addEventListener('click', toggleMenu);
   closeMenuBtn.addEventListener('click', toggleMenu);
 
-  // Close the mobile menu on wider screens if the device orientation changes
   window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open');
