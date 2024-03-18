@@ -16,6 +16,7 @@ class ExercisesAPI {
 
   fetchImages(page) {
     ExercisesAPI.END_POINT = '/api/filters';
+    loader.classList.add('is-hidden');
 
     const url = ExercisesAPI.BASE_URL + ExercisesAPI.END_POINT;
     const params = {
@@ -31,6 +32,7 @@ class ExercisesAPI {
   fetchExercises(page) {
     ExercisesAPI.END_POINT = '/api/exercises';
     const url = ExercisesAPI.BASE_URL + ExercisesAPI.END_POINT;
+    loader.classList.add('is-hidden');
     const params = {
       muscles: this.muscles,
       bodypart: this.bodypart,
@@ -201,15 +203,21 @@ const paginationfetchExercises = async (page = 1) => {
 };
 
 async function defaultSettings() {
-  exercisesAPI.filter = 'Muscles';
+  try {
+    exercisesAPI.filter = 'Muscles';
 
-  if (!mediaT.matches) {
-    exercisesAPI.perPage = 8;
-  } else {
-    exercisesAPI.perPage = 12;
+    if (!mediaT.matches) {
+      exercisesAPI.perPage = 8;
+    } else {
+      exercisesAPI.perPage = 12;
+    }
+
+    paginationFetchImages();
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    loader.classList.add('is-hidden');
   }
-
-  paginationFetchImages();
 }
 
 defaultSettings();
@@ -238,25 +246,30 @@ async function onFilterBtnClick(e) {
     }
   });
   let target = e.target.name;
+  try {
+    if (target === 'muscles') {
+      exercisesAPI.filter = 'Muscles';
+    } else if (target === 'body-parts') {
+      exercisesAPI.filter = 'Body parts';
+    } else if (target === 'equipment') {
+      exercisesAPI.filter = 'Equipment';
+    } else {
+      return;
+    }
 
-  if (target === 'muscles') {
-    exercisesAPI.filter = 'Muscles';
-  } else if (target === 'body-parts') {
-    exercisesAPI.filter = 'Body parts';
-  } else if (target === 'equipment') {
-    exercisesAPI.filter = 'Equipment';
-  } else {
-    return;
+    if (!mediaT.matches) {
+      exercisesAPI.perPage = 8;
+    } else {
+      exercisesAPI.perPage = 12;
+    }
+
+    pagination.setPage = 1;
+    paginationFetchImages();
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    loader.classList.add('is-hidden');
   }
-
-  if (!mediaT.matches) {
-    exercisesAPI.perPage = 8;
-  } else {
-    exercisesAPI.perPage = 12;
-  }
-
-  pagination.setPage = 1;
-  paginationFetchImages();
 }
 
 function imgTemplate({ filter, imgUrl, name }) {
@@ -299,29 +312,34 @@ async function onGalleryIMGClick(evt) {
       Exercises /
       <span class="choosen-content">${hightLightedText}</span>
     </h2>`;
+    try {
+      if (mediaD.matches) {
+        exercisesAPI.perPage = 9;
+      } else if (!mediaD.matches) {
+        exercisesAPI.perPage = 8;
+      }
 
-    if (mediaD.matches) {
-      exercisesAPI.perPage = 9;
-    } else if (!mediaD.matches) {
-      exercisesAPI.perPage = 8;
+      exercisesAPI.bodypart = '';
+      exercisesAPI.muscles = '';
+      exercisesAPI.equipment = '';
+      if (
+        'bodypart' ===
+        filterExercise.innerText.toLowerCase().replace(' ', '').slice(0, -1)
+      ) {
+        exercisesAPI.bodypart = filterName.innerText.toLowerCase();
+      } else if ('muscles' === filterExercise.innerText.toLowerCase()) {
+        exercisesAPI.muscles = filterName.innerText.toLowerCase();
+      } else if ('equipment' === filterExercise.innerText.toLowerCase()) {
+        exercisesAPI.equipment = filterName.innerText.toLowerCase();
+      }
+      pagination.setPage = 1;
+      paginationfetchExercises();
+      pagination.on(paginationfetchExercises);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      loader.classList.add('is-hidden');
     }
-
-    exercisesAPI.bodypart = '';
-    exercisesAPI.muscles = '';
-    exercisesAPI.equipment = '';
-    if (
-      'bodypart' ===
-      filterExercise.innerText.toLowerCase().replace(' ', '').slice(0, -1)
-    ) {
-      exercisesAPI.bodypart = filterName.innerText.toLowerCase();
-    } else if ('muscles' === filterExercise.innerText.toLowerCase()) {
-      exercisesAPI.muscles = filterName.innerText.toLowerCase();
-    } else if ('equipment' === filterExercise.innerText.toLowerCase()) {
-      exercisesAPI.equipment = filterName.innerText.toLowerCase();
-    }
-    pagination.setPage = 1;
-    paginationfetchExercises();
-    pagination.on(paginationfetchExercises);
   }
 }
 
